@@ -2,7 +2,7 @@
 
 export async function POST(request: Request) {
     try {
-        const { title, keywords, language, tone } = await request.json();
+        const { title, keywords, language } = await request.json();
 
         if (!title || !keywords || !language) {
             return new Response(

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export default function BlogGeneratePage() {
   const [title, setTitle] = useState("");
@@ -47,7 +47,7 @@ export default function BlogGeneratePage() {
         alert(data.message || "Error generating blog content");
       }
     } catch (error) {
-      alert("Error generating blog post");
+      alert(`Error generating blog post ${error}`);
     }
     setLoading(false);
     clearInterval(progressInterval); // Stop progress bar on completion
