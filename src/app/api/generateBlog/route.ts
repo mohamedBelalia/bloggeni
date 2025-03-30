@@ -1,10 +1,10 @@
 export async function POST(request: Request) {
     try {
-        const { title, keywords, language } = await request.json();
+        const { title, keywords, language, size, tone, details } = await request.json();
 
-        if (!title || !keywords || !language) {
+        if (!title || !keywords || !language || !details ) {
             return new Response(
-                JSON.stringify({ message: "Missing required fields" }),
+                JSON.stringify({ message: `Missing required fields title : ${title} | keys :${keywords} | lang: ${language} | details ${details}` }),
                 { status: 400 }
             );
         }
@@ -17,14 +17,31 @@ export async function POST(request: Request) {
             );
         }
 
-        const prompt = `Write a well-structured and SEO-friendly blog post in ${language} with the title '${title}'. 
-        The tone should feel natural and human—avoid robotic or repetitive phrasing. 
-        Use varied sentence structures, personal insights, and a mix of short and long sentences. 
-        Do NOT include any calls to action like 'Drop a comment below' or 'Share your thoughts.' 
-        Focus purely on delivering valuable content without any engagement prompts. 
-        Include keywords like ${keywords.join(", ")} naturally without over-optimization. 
-        Make the writing sound like it comes from a real person—add rhetorical questions, a conversational flow, 
-        and even an occasional anecdote or opinion. The goal is to make the content feel as if an expert is speaking rather than AI-generated.`;
+        const prompt = `Act as a professional SEO content writer with expertise in crafting engaging, well-structured, and informative blog posts that feel natural and human-written. Your task is to write a high-quality blog post based on the following details:  
+
+                - **Title:** ${title}
+                - **Main Keywords:** ${keywords} (Use these naturally and strategically for SEO without overstuffing.)  
+                - **Language:** ${language ?? "english"}
+                - **Article Size:** ${size ?? "Medium"}
+                - **Tone of Voice:** ${tone ?? "Formal"}  
+                - **Details to Include:** ${details ?? "none"} 
+
+                ### **SEO Optimization Guidelines:**  
+                1. **Engaging Introduction:** Start with a compelling hook that captures the reader’s attention. Clearly define the purpose of the article and naturally introduce the main keyword within the first 100 words.  
+                2. **Well-Structured Headings (H1, H2, H3, etc.):** Break the content into scannable sections, incorporating **long-tail keywords** and **semantic variations** naturally.  
+                3. **Conversational and Human-Like Tone:** Avoid AI-generated patterns, use contractions, rhetorical questions, and an engaging narrative style. Make the content **feel like it was written by a real expert.**  
+                4. **SEO Best Practices:** Use keywords strategically in headings, subheadings, and the body (without overstuffing). Implement **LSI (Latent Semantic Indexing) keywords** related to the topic to improve search rankings.  
+                5. **Actionable and Valuable Content:** Provide in-depth explanations, examples, statistics (if possible), and practical advice. Use **bullet points** and **numbered lists** to enhance readability.  
+                6. **Call to Action (CTA):** End with a natural and compelling CTA, encouraging engagement, comments, or social sharing.  
+
+                ### **Formatting & Style:**  
+                - Keep paragraphs short (2-4 sentences max) for readability.  
+                - Use a mix of simple and complex sentences to maintain a natural flow.  
+                - Avoid robotic repetition and keep the tone dynamic and engaging.  
+                - If storytelling is preferred, add a relatable anecdote or an analogy to keep readers hooked.  
+
+                Now, generate the **best-quality** blog post based on these guidelines! 🚀  
+                `;
 
         const apiResponse = await fetch("https://openrouter.ai/api/v1/chat/completions", {
             method: "POST",
