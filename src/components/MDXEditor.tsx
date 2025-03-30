@@ -1,5 +1,3 @@
-// components/MDXEditor.tsx
-import { get } from 'http';
 import dynamic from 'next/dynamic';
 import { useState, useEffect, Dispatch, SetStateAction } from 'react';
 
@@ -11,9 +9,9 @@ type MDXEditorProps = {
 };
 
 const MDXEditor: React.FC<MDXEditorProps> = ({ mdxData , getGeneratedBlog }) => {
-  const [value, setValue] = useState<string>(mdxData); // store MDX content
+  const [value, setValue] = useState<string>(mdxData);
 
-  // Update the state when mdxData prop changes
+
   useEffect(() => {
     setValue(mdxData);
   }, [mdxData]);
