@@ -8,6 +8,7 @@ import Image from "next/image";
 import DownloadHtml from "@/components/generatedBlog/DownloadHtml";
 import WordpressPublish from "@/components/generatedBlog/WordpressPublish";
 import { FaEarlybirds } from "react-icons/fa";
+import SaveBlog from "@/components/generatedBlog/SaveBlog";
 
 export default function BlogGeneratePage() {
   const [generatedBlog, setGeneratedBlog] = useState("");
@@ -75,6 +76,7 @@ export default function BlogGeneratePage() {
               </div>
               : <div>
                 <div className="w-full flex justify-end mb-6 items-center gap-7">
+                  <SaveBlog content={generatedBlog} title="The Best 3 places in marrakech" />
                   <WordpressPublish markdown={generatedBlog} />
                   <DownloadHtml markedText={generatedBlog} />
                 </div>
