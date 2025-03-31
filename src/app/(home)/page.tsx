@@ -1,10 +1,24 @@
-
+"use client"
 import { AiFillStar } from "react-icons/ai";
 import { MdOutlineGeneratingTokens } from "react-icons/md";
 import ThreeSteps from "./ThreeSteps";
 import OldSeoGoodB from "./OldSeoGoodB";
+import { supabase } from "@/lib/supabase";
 
 export default function Home() {
+
+  const setNewView = async () => {
+     const { data , error } = await supabase.from('Views').insert({name:"simo"})
+
+     if(data) console.log(data);
+     if(error) console.log(error);
+  }
+
+  const handleBtnClick = () => {
+      setNewView()
+  }
+
+
   return (
     <div className="mt-12 mb-64">
 
@@ -40,6 +54,7 @@ export default function Home() {
 
       <div className="flex w-[90%] mx-auto justify-center items-center mt-10">
         <button
+          onClick={handleBtnClick}
           type="button"
           className="flex shadow-cyan-500/50 cursor-pointer items-center uppercase justify-center px-6 py-3 bg-gradient-to-r from-fuchsia-700 to-cyan-600 text-white font-semibold rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300"
         >
