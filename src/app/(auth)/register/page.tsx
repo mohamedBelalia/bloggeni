@@ -27,7 +27,6 @@ import { registerUser } from "./action";
 import { useRouter } from "next/navigation";
 import { Loader2 } from "lucide-react";
 import Link from "next/link";
-import { error } from "console";
 
 const formSchema = z
   .object({
