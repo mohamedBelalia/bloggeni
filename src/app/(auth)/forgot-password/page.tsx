@@ -22,7 +22,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2 } from "lucide-react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { forgotPassword } from "./action";
@@ -32,8 +32,14 @@ const formSchema = z.object({
 });
 
 export default function ForgotPassword() {
-  const searchParams = useSearchParams();
   const router = useRouter();
+
+  const [email, setEmail] = useState("");
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search);
+    setEmail(decodeURIComponent(searchParams.get("email") ?? ""));
+  }, []);
 
   const [serverError, setServerError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false); // Add loading state
@@ -41,7 +47,7 @@ export default function ForgotPassword() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      email: decodeURIComponent(searchParams.get("email") ?? ""),
+      email,
     },
   });
 
