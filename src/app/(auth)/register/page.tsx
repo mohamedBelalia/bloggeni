@@ -27,6 +27,7 @@ import { registerUser } from "./action";
 import { useRouter } from "next/navigation";
 import { Loader2 } from "lucide-react";
 import Link from "next/link";
+import { error } from "console";
 
 const formSchema = z
   .object({
@@ -83,6 +84,7 @@ export default function Register() {
         router.push("/register/confirmation");
       }
     } catch (error) {
+      console.log(error)
       setServerError("An unexpected error occurred. Please try again.");
     } finally {
       setIsLoading(false); // Set loading to false when submission ends

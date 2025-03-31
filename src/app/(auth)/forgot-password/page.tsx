@@ -62,6 +62,7 @@ export default function ForgotPassword() {
         router.push("/forgot-password/confirmation");
       }
     } catch (error) {
+      console.log(error);
       setServerError("An unexpected error occurred. Please try again.");
     } finally {
       setIsLoading(false); // Set loading to false when submission ends
@@ -120,7 +121,7 @@ export default function ForgotPassword() {
             </Link>
           </div>
           <div className="text-muted-foreground text-sm">
-            Don't have an account?{" "}
+            Don&apos;t have an account?{" "}
             <Link href="/register" className="underline">
               Register
             </Link>

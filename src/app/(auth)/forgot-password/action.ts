@@ -3,7 +3,6 @@
 import { z } from "zod";
 
 import { createClient } from "@/utils/supabase/server";
-import { updateSession } from "@/utils/supabase/middleware";
 
 const forgotPasswordSchema = z.object({
   email: z.string().email(),
@@ -28,12 +27,12 @@ export const forgotPassword = async ({ email }: { email: string }) => {
   const { error } = await supabase.auth.resetPasswordForEmail(email);
 
   console.log("err: ", error);
-  // if (error === null) {
-  //   return {
-  //     error: true,
-  //     message: "No such email registered",
-  //   };
-  // }
+  if (error === null) {
+    return {
+      error: true,
+      message: "No such email registered",
+    };
+  }
 
   if (error) {
     return {

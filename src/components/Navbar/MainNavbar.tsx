@@ -1,12 +1,11 @@
 // 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
-import { ChevronDown, Menu, X } from 'lucide-react';
+import { ChevronDown, Menu } from 'lucide-react';
 import Image from 'next/image';
 import { createClient } from "@/utils/supabase/server";
 import LogoutButton from './LogoutButton';
-import EmailAvatar from './EmailAvatar';
+// import EmailAvatar from './EmailAvatar';
 
 const MainNavbar = async () => {
   // const [dropdown, setDropdown] = useState<string | null>(null);

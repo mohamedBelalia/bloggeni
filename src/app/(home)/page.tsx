@@ -26,19 +26,19 @@ export default function Home() {
         <div className="md:w-1/3 w-full p-2 flex justify-center flex-col items-center">
           <FiveStars />
           <p className="text-sm font-semibold text-center mt-1 text-gray-700">
-            "The ultimate AI tool for SEO-optimized blogging!"
+          &quot;The ultimate AI tool for SEO-optimized blogging!&quot;
           </p>
         </div>
         <div className="w-1/3 p-2 md:flex hidden justify-center flex-col items-center">
           <FiveStars />
           <p className="text-sm font-semibold text-center mt-1 text-gray-700">
-            "My go-to AI for effortless content creation!"
+          &quot;My go-to AI for effortless content creation!&quot;
           </p>
         </div>
         <div className="w-1/3 p-2 md:flex hidden justify-center flex-col items-center">
           <FiveStars />
           <p className="text-sm font-semibold text-center mt-1 text-gray-700">
-            "Best AI blog writer I’ve ever used!"
+          &quot;Best AI blog writer I’ve ever used!&quot;
           </p>
         </div>
       </div>

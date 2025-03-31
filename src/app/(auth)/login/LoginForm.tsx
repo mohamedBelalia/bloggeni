@@ -65,6 +65,7 @@ export default function LoginForm() {
         router.push("/blog-generator");
       }
     } catch (error) {
+      console.log(error);
       setServerError("An unexpected error occurred. Please try again.");
     } finally {
       setIsLoading(false); // Set loading to false when submission ends
@@ -133,7 +134,7 @@ export default function LoginForm() {
         </CardContent>
         <CardFooter className="flex-col gap-2">
           <div className="text-muted-foreground text-sm">
-            Don't have an account?{" "}
+            Don&apos;t have an account?{" "}
             <Link href="/register" className="underline">
               Register
             </Link>
