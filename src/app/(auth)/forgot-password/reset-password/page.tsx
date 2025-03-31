@@ -18,23 +18,21 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { passwordMatchSchema } from "@/validation/passwordMatchSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { registerUser } from "./action";
+import { resetPasswordFunc } from "./action";
 import { useRouter } from "next/navigation";
 import { Loader2 } from "lucide-react";
 import Link from "next/link";
 
-const formSchema = z
-  .object({
-    email: z.string().email(),
-  })
-  .and(passwordMatchSchema);
+const formSchema = z.object({
+  password: z.string().min(6),
+  passwordConfirm: z.string().min(6),
+});
 
-export default function Register() {
+export default function ResetPassword() {
   const [serverError, setServerError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false); // Add loading state
   const router = useRouter();
@@ -42,36 +40,17 @@ export default function Register() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      email: "",
       password: "",
       passwordConfirm: "",
     },
   });
 
-  //   const handleSubmit = async (data: z.infer<typeof formSchema>) => {
-  //     setServerError(null);
-  //     const response = await registerUser({
-  //       email: data.email,
-  //       password: data.password,
-  //       passwordConfirm: data.passwordConfirm,
-  //     });
-
-  //     if (response.error) {
-  //       setServerError(response.message);
-  //     } else {
-  //       // Handle successful registration (e.g., show a success message or redirect)
-  //       router.push("/register/confirmation");
-  //       console.log(response.message);
-  //     }
-  //     console.log("hey: ", response);
-  //   };
   const handleSubmit = async (data: z.infer<typeof formSchema>) => {
     setServerError(null);
     setIsLoading(true); // Set loading to true when submission starts
 
     try {
-      const response = await registerUser({
-        email: data.email,
+      const response = await resetPasswordFunc({
         password: data.password,
         passwordConfirm: data.passwordConfirm,
       });
@@ -79,8 +58,9 @@ export default function Register() {
       if (response.error) {
         setServerError(response.message);
       } else {
+        console.log("ddd: ", response);
         // Redirect to the confirmation page
-        router.push("/register/confirmation");
+        router.push("/dashboard");
       }
     } catch (error) {
       setServerError("An unexpected error occurred. Please try again.");
@@ -93,8 +73,10 @@ export default function Register() {
     <main className="flex justify-center items-center min-h-screen">
       <Card className="w-[380px]">
         <CardHeader>
-          <CardTitle>Register</CardTitle>
-          <CardDescription>Register for a new account</CardDescription>
+          <CardTitle>Password Reset</CardTitle>
+          <CardDescription>
+            Enter your new password to update your password
+          </CardDescription>
         </CardHeader>
         <CardContent>
           <Form {...form}>
@@ -104,23 +86,10 @@ export default function Register() {
             >
               <FormField
                 control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Email</FormLabel>
-                    <FormControl>
-                      <Input {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
                 name="password"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Password</FormLabel>
+                    <FormLabel>New password</FormLabel>
                     <FormControl>
                       <Input {...field} type="password" />
                     </FormControl>
@@ -152,20 +121,12 @@ export default function Register() {
                     Please wait
                   </>
                 ) : (
-                  "Register"
+                  "Submit"
                 )}
               </Button>
             </form>
           </Form>
         </CardContent>
-        <CardFooter className="flex-col gap-2">
-          <div className="text-muted-foreground text-sm">
-            Already have an account?{" "}
-            <Link href="/login" className="underline">
-              Login
-            </Link>
-          </div>
-        </CardFooter>
       </Card>
     </main>
   );

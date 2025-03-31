@@ -7,6 +7,7 @@ import MDXEditor from "@/components/MDXEditor";
 import Image from "next/image";
 import DownloadHtml from "@/components/generatedBlog/DownloadHtml";
 import WordpressPublish from "@/components/generatedBlog/WordpressPublish";
+import { FaEarlybirds } from "react-icons/fa";
 
 export default function BlogGeneratePage() {
   const [generatedBlog, setGeneratedBlog] = useState("");
@@ -67,8 +68,9 @@ export default function BlogGeneratePage() {
             </div>
             :
             generatedBlog.length == 0
-              ? <div className="w-full h-full rounded-md border border-gray-100 flex justify-center items-center flex-col bg-[#e4e2e1]">
-                <Image src={"/pro-duck.png"} alt="generating the blog" width={300} height={300} />
+              ? <div className="w-full h-[80%] rounded-md border border-gray-100 flex justify-center items-center flex-col">
+                {/* <Image src={"/pro-duck.png"} alt="generating the blog" width={300} height={300} /> */}
+                <FaEarlybirds size={70} />
                 <p>Your generated Blog will appear here</p>
               </div>
               : <div>
