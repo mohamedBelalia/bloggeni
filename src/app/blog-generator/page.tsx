@@ -6,13 +6,14 @@ import { IBlogData } from "@/lib/types";
 import MDXEditor from "@/components/MDXEditor";
 import Image from "next/image";
 import DownloadHtml from "@/components/generatedBlog/DownloadHtml";
-import WordpressPublish from "@/components/generatedBlog/WordpressPublish";
+// import WordpressPublish from "@/components/generatedBlog/WordpressPublish";
 import { FaEarlybirds } from "react-icons/fa";
 import SaveBlog from "@/components/generatedBlog/SaveBlog";
 
 export default function BlogGeneratePage() {
   const [generatedBlog, setGeneratedBlog] = useState("");
   const [loading, setLoading] = useState(false);
+  const [userTitle , setUserTitle] = useState<string>("") 
 
   const [blogData, setBlogData] = useState<IBlogData>({ title: "", keywords: "", language: "", size: "", tone: "", details: "" });
 
@@ -55,7 +56,7 @@ export default function BlogGeneratePage() {
     <div className="min-h-screen md:p-10 p-5 bg-gray-100 flex flex-col md:flex-row gap-10">
 
       <div className="md:w-1/3 w-full">
-        <BlogGenForm getBlogData={setBlogData} generateBlogFn={generateBlog} />
+        <BlogGenForm getBlogData={setBlogData} generateBlogFn={generateBlog} getUserTitle={setUserTitle} />
       </div>
       <div className="border-0 border-l border-gray-400"></div>
       <div className="w-full">
@@ -76,9 +77,9 @@ export default function BlogGeneratePage() {
               </div>
               : <div>
                 <div className="w-full flex justify-end mb-6 items-center gap-7">
-                  <SaveBlog content={generatedBlog} title="The Best 3 places in marrakech" />
-                  <WordpressPublish markdown={generatedBlog} />
-                  <DownloadHtml markedText={generatedBlog} />
+                  <SaveBlog content={generatedBlog} title={userTitle} />
+                  {/* <WordpressPublish markdown={generatedBlog} /> */}
+                  <DownloadHtml markedText={generatedBlog} title={userTitle} />
                 </div>
                 <MDXEditor mdxData={generatedBlog} getGeneratedBlog={setGeneratedBlog} />
               </div>

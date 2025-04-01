@@ -10,9 +10,10 @@ import { MdOutlineGeneratingTokens } from "react-icons/md";
 type BlogGenFormProps = {
   getBlogData: Dispatch<SetStateAction<IBlogData>>
   generateBlogFn: () => Promise<void>
+  getUserTitle: Dispatch<SetStateAction<string>>
 }
 
-export default function BlogGenForm({ getBlogData, generateBlogFn }: BlogGenFormProps) {
+export default function BlogGenForm({ getBlogData, generateBlogFn , getUserTitle }: BlogGenFormProps) {
   const [formData, setFormData] = useState<IBlogData>({
     title: "",
     keywords: "",
@@ -29,6 +30,7 @@ export default function BlogGenForm({ getBlogData, generateBlogFn }: BlogGenForm
 
   useEffect(() => {
     getBlogData(formData);
+    getUserTitle(formData.title)
   }, [formData, getBlogData]);
 
   return (

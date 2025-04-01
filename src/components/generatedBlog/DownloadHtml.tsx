@@ -1,12 +1,14 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { marked } from "marked";
+import { FaHtml5 } from "react-icons/fa";
 
 type DownloadHtmlProps = {
-    markedText: string
+    markedText: string,
+    title : string
 }
 
-const DownloadHtml = ({ markedText }: DownloadHtmlProps) => {
+const DownloadHtml = ({ markedText , title}: DownloadHtmlProps) => {
     const [markdown, setMarkdown] = useState<string>(markedText);
 
     useEffect(() => {
@@ -38,7 +40,7 @@ const DownloadHtml = ({ markedText }: DownloadHtmlProps) => {
         const blob = new Blob([fullHTML], { type: "text/html" });
         const link = document.createElement("a");
         link.href = URL.createObjectURL(blob);
-        link.download = "blog-ai-belalia.html";
+        link.download = `${title}.html`;
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
@@ -47,10 +49,10 @@ const DownloadHtml = ({ markedText }: DownloadHtmlProps) => {
     return (
         <button
             onClick={convertAndDownload}
-            className="mt-2 px-4 py-2 bg-[#652293] text-white rounded cursor-pointer"
+            className="mt-2 px-4 py-2 bg-[#652293] text-white rounded cursor-pointer flex justify-center items-center gap-2.5"
         >
-            Download as HTML
-        </button>
+            Download as HTML <FaHtml5 size={20} />
+       </button>
     );
 }
 

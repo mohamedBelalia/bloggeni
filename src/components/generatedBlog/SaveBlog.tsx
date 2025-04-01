@@ -1,8 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
-import { Session } from "@supabase/auth-helpers-nextjs"; // Import Session type
+import { useState } from "react";
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "../ui/dialog";
+import { Button } from "../ui/button";
+import { Label } from "../ui/label";
+import { Input } from "../ui/input";
+import { IoSaveOutline } from "react-icons/io5";
+
 
 interface SaveBlogProps {
   content: string;
@@ -10,55 +14,92 @@ interface SaveBlogProps {
 }
 
 export default function SaveBlog({ content, title }: SaveBlogProps) {
-  const supabase = createClientComponentClient();
   const [error, setError] = useState<string | null>(null);
-  const [session, setSession] = useState<Session | null>(null);
-
-  useEffect(() => {
-    const getSession = async () => {
-      const { data } = await supabase.auth.getSession();
-      setSession(data.session);
-    };
-    getSession();
-  }, []);
+  const [loading, setLoading] = useState<boolean>(false)
+  const [mainTitle, setMainTitle] = useState<string>(title)
+  const [success, setSuccess] = useState<boolean | null>(null)
 
   const handleSave = async () => {
-    if (!session) {
-      setError("You must be logged in to save your blog");
-      return;
-    }
-
     try {
-      const response = await fetch("/api/storeBlog", {
+      setLoading(true)
+      const res = await fetch("/api/saveblog", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${session.access_token}`,
-        },
-        body: JSON.stringify({ title, content }),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ title: mainTitle, content }),
       });
 
-      const result = await response.json();
+      const responseData = await res.json();
+      if (!res.ok) throw new Error(responseData.error || "Failed to save blog");
 
-      if (!response.ok) {
-        throw new Error(result.error || "An error occurred");
-      }
+      setSuccess(true)
 
-      alert("Blog saved successfully!");
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Unknown error");
+    } catch (error: any) {
+      console.error(error);
+      setError("Failed to save blog")
+      alert("Error saving blog");
+    } finally {
+      setLoading(false);
     }
   };
 
+
+
   return (
     <div>
-      <button
+      <Dialog>
+        <DialogTrigger asChild>
+          <Button className="mt-2 px-4 py-2 bg-[#076d81] text-white rounded cursor-pointer hover:bg-[#076d81]">Save <IoSaveOutline /></Button>
+        </DialogTrigger>
+        <DialogContent className="sm:max-w-[425px]">
+          <DialogHeader>
+            <DialogTitle>Save Your Generated Blog</DialogTitle>
+            <DialogDescription>
+              You can access your saved blog by going to: <br />
+              Account &#10148; Saved Blogs <br />
+            </DialogDescription>
+          </DialogHeader>
+          {
+            success == null
+              ?
+              <div className="grid gap-4 py-4">
+                <div className="flex flex-col gap-2">
+                  <Label htmlFor="name" className="text-right">
+                    Title
+                  </Label>
+                  <Input
+                    id="name"
+                    value={mainTitle}
+                    name="mainTitle"
+                    onChange={(e) => setMainTitle(e.target.value)}
+                    className="col-span-3"
+                  />
+                  {error && <p className="text-red-500">{error}</p>}
+                </div>
+              </div>
+              :
+              success === true
+              && <div>Success</div>
+          }
+
+          <DialogFooter>
+            {
+              loading
+                ? <Button disabled className="mt-2 px-4 py-2 bg-[#652293] hover:bg-[#652293] text-white rounded cursor-not-allowed">Saving ...</Button>
+                : success == null ?
+                <Button className="mt-2 px-4 py-2 bg-[#652293] hover:bg-[#652293] text-white rounded cursor-pointer" onClick={handleSave} type="submit">Save It</Button>
+                : success == true && 
+                <Button className="mt-2 px-4 py-2 bg-[#652293] hover:bg-[#652293] text-white rounded cursor-pointer" type="submit">Cancel</Button>
+            }
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+      {/* <button
         onClick={handleSave}
         className="bg-blue-500 text-white px-4 py-2 rounded"
       >
-        Save Blog
+        {loading ? "Saving Blog ..." : "Save Blog"}
       </button>
-      {error && <p className="text-red-500">{error}</p>}
+      {error && <p className="text-red-500">{error}</p>} */}
     </div>
   );
 }

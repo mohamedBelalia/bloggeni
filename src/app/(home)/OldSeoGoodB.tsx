@@ -76,7 +76,7 @@ type CardLocalProps = {
 }
 
 const CardLocal = ({ title, description, Icon }: CardLocalProps) => {
-    return <div className='md:w-1/3 w-full p-5 bg-[#652293] rounded-md'>
+    return <div className='md:w-1/3 w-full p-5 bg-gradient-to-r to-fuchsia-700 from-cyan-600 rounded-md'>
         <div className="bg-white p-2 rounded-md w-fit">
             <Icon size={20} className="text-[#144463]" />
         </div>

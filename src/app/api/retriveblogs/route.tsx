@@ -1,10 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/utils/supabase/server";
 
-export async function POST(req: NextRequest) {
+export async function GET(req: NextRequest) {
   try {
     const supabase = createClient(); // Get Supabase instance
-    const { title, content } = await req.json();
 
     // Get authenticated user
     const {
@@ -15,18 +14,16 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    // Insert blog into Supabase
-    const { data, error } = await supabase.from("savedblogs").insert([
-      {
-        user_id: user.id,
-        title,
-        content,
-      },
-    ]);
+    // Fetch blogs where user_id matches authenticated user
+    const { data, error } = await supabase
+      .from("savedblogs")
+      .select("*")
+      .eq("user_id", user.id)
+      .order("created_at", { ascending: false });
 
     if (error) throw error;
 
-    return NextResponse.json({ message: "Blog saved successfully", data });
+    return NextResponse.json({ blogs: data });
   } catch (error) {
     return NextResponse.json({ error: (error as Error).message }, { status: 500 });
   }

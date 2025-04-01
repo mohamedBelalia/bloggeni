@@ -23,7 +23,7 @@ const EmailAvatar: React.FC<EmailAvatarProps> = ({ email }) => {
 
   return (
     <div
-      className={`w-12 h-12 flex items-center justify-center rounded-full text-white text-lg font-bold ${bgColor}`}
+      className={`w-10 h-10 flex items-center cursor-pointer justify-center rounded-full text-white text-lg font-bold ${bgColor}`}
     >
       {firstChar}
     </div>
