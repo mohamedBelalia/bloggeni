@@ -7,6 +7,7 @@ import { MdVerified } from "react-icons/md";
 import { AiOutlineFileText } from "react-icons/ai";
 import { BsLink45Deg } from "react-icons/bs";
 import { HiOutlineRefresh } from "react-icons/hi";
+import Link from "next/link";
 
 const OldSeoGoodB = () => {
     return (
@@ -54,13 +55,14 @@ const OldSeoGoodB = () => {
             </div>
 
             <div className="flex justify-center items-center mt-10">
-                    <button
-                      type="button"
-                      className="flex shadow-cyan-500/50 cursor-pointer items-center uppercase justify-center px-6 py-3 bg-gradient-to-r from-fuchsia-700 to-cyan-600 text-white font-semibold rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300"
-                    >
-                      <span className="mr-2">Create Your Next Clean Blog</span>
-                    </button>
-                  </div>
+                <Link
+                    href="/blog-generator"
+                    type="button"
+                    className="flex shadow-cyan-500/50 cursor-pointer items-center uppercase justify-center px-6 py-3 bg-gradient-to-r from-fuchsia-700 to-cyan-600 text-white font-semibold rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300"
+                >
+                    <span className="mr-2">Create Your Next Clean Blog</span>
+                </Link>
+            </div>
 
         </div>
     )

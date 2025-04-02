@@ -2,14 +2,6 @@
 
 import { Button } from "@/components/ui/button";
 import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import {
   Form,
   FormControl,
   FormField,
@@ -27,6 +19,8 @@ import { registerUser } from "./action";
 import { useRouter } from "next/navigation";
 import { Loader2 } from "lucide-react";
 import Link from "next/link";
+import GoogleSignin from "../login/GoogleSignin";
+import Image from "next/image";
 
 const formSchema = z
   .object({
@@ -91,24 +85,37 @@ export default function Register() {
   };
 
   return (
-    <main className="flex justify-center items-center min-h-screen">
-      <Card className="w-[380px]">
-        <CardHeader>
-          <CardTitle>Register</CardTitle>
-          <CardDescription>Register for a new account</CardDescription>
-        </CardHeader>
-        <CardContent>
+    <main className="flex flex-col justify-center items-center mt-16">
+      <div className="mb-9">
+        <h2 className="text-[#652293] text-center text-3xl font-semibold">Create Your <span className="bg-[#652293] text-white px-2 rounded-md">SEO WISE</span> Account</h2>
+      </div>
+      <div className="w-[380px]">
+
+        <div className="mb-10">
+          <GoogleSignin />
+        </div>
+
+        <div className="flex justify-center items-center mb-5">
+          <Image
+            src="/dash_seprator.svg"
+            alt="Google logo"
+            width={300}
+            height={60}
+          />
+        </div>
+
+        <div>
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(handleSubmit)}
-              className="flex flex-col gap-2"
+              className="flex flex-col gap-5"
             >
               <FormField
                 control={form.control}
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email</FormLabel>
+                    <FormLabel className="text-[#652293]">Email</FormLabel>
                     <FormControl>
                       <Input {...field} />
                     </FormControl>
@@ -121,7 +128,7 @@ export default function Register() {
                 name="password"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Password</FormLabel>
+                    <FormLabel className="text-[#652293]">Password</FormLabel>
                     <FormControl>
                       <Input {...field} type="password" />
                     </FormControl>
@@ -134,7 +141,7 @@ export default function Register() {
                 name="passwordConfirm"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Password confirm</FormLabel>
+                    <FormLabel className="text-[#652293]">Password confirm</FormLabel>
                     <FormControl>
                       <Input {...field} type="password" />
                     </FormControl>
@@ -146,7 +153,7 @@ export default function Register() {
                 <p className="text-red-500 text-sm mt-2">{serverError}</p>
               )}
               {/* <Button type="submit">Register</Button> */}
-              <Button type="submit" disabled={isLoading}>
+              <Button className="cursor-pointer bg-[#076d81] hover:bg-[#076d81] py-5" type="submit" disabled={isLoading}>
                 {isLoading ? (
                   <>
                     <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -158,16 +165,18 @@ export default function Register() {
               </Button>
             </form>
           </Form>
-        </CardContent>
-        <CardFooter className="flex-col gap-2">
-          <div className="text-muted-foreground text-sm">
+        </div>
+
+        <div className="flex-col gap-2 mt-3">
+          <div className="text-center text-sm">
             Already have an account?{" "}
-            <Link href="/login" className="underline">
+            <Link href="/login" className="underline font-semibold">
               Login
             </Link>
           </div>
-        </CardFooter>
-      </Card>
+        </div>
+
+      </div>
     </main>
   );
 }

@@ -1,4 +1,5 @@
 import TimeLine from '@/components/comp-534';
+import Link from 'next/link';
 import React from 'react'
 import { MdOutlineGeneratingTokens } from 'react-icons/md';
 
@@ -13,13 +14,14 @@ const ThreeSteps = () => {
                 <p className='mt-6 md:text-lg text-base font-medium md:text-start text-center'>
                     Increase Your Website Traffic with High Quality Content Starting This Week!
                 </p>
-                <button
-                          type="button"
-                          className="flex mt-8 shadow-cyan-500/50 cursor-pointer items-center uppercase justify-center px-6 py-3 bg-gradient-to-r from-fuchsia-700 to-cyan-600 text-white font-semibold rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300"
-                        >
-                          <span className="mr-2">Generate Your Blog Post Now</span>
-                          <MdOutlineGeneratingTokens className="text-2xl md:block hidden" />
-                        </button>
+                <Link
+                    href="/blog-generator"
+                    type="button"
+                    className="flex mt-8 shadow-cyan-500/50 cursor-pointer items-center uppercase justify-center px-6 py-3 bg-gradient-to-r from-fuchsia-700 to-cyan-600 text-white font-semibold rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300"
+                >
+                    <span className="mr-2">Generate Your Blog Post Now</span>
+                    <MdOutlineGeneratingTokens className="text-2xl md:block hidden" />
+                </Link>
             </div>
             <div className='md:w-1/2 w-full md:p-0 p-8'>
                 <TimeLine />

@@ -9,7 +9,7 @@ import DownloadHtml from "@/components/generatedBlog/DownloadHtml";
 export default function BlogPage() {
     const { id } = useParams();
     const supabase = createClient();
-    const [blog, setBlog] = useState<any>(null);
+    const [blog, setBlog] = useState<{ title: string; created_at: string; content: string } | null>(null);
     const [loading, setLoading] = useState(true);
     const [generatedContent, setGeneratedContent] = useState<string>("")
 

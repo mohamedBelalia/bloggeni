@@ -33,8 +33,8 @@ export default function SaveBlog({ content, title }: SaveBlogProps) {
 
       setSuccess(true)
 
-    } catch (error: any) {
-      console.error(error);
+    } catch (error) {
+      console.log(error);
       setError("Failed to save blog")
       alert("Error saving blog");
     } finally {

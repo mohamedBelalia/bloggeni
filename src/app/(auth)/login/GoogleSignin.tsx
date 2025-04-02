@@ -42,6 +42,7 @@ export default function GoogleSignin() {
     <Button
       type="button"
       variant="outline"
+      className="border border-gray-500 w-full py-6 cursor-pointer"
       onClick={signInWithGoogle}
       disabled={isGoogleLoading}
     >

@@ -4,6 +4,7 @@ import { MdOutlineGeneratingTokens } from "react-icons/md";
 import ThreeSteps from "./ThreeSteps";
 import OldSeoGoodB from "./OldSeoGoodB";
 import { supabase } from "@/lib/supabase";
+import Link from "next/link";
 
 export default function Home() {
 
@@ -53,14 +54,15 @@ export default function Home() {
       </div>
 
       <div className="flex w-[90%] mx-auto justify-center items-center mt-10">
-        <button
+        <Link
+          href="/blog-generator"
           onClick={handleBtnClick}
           type="button"
           className="flex shadow-cyan-500/50 cursor-pointer items-center uppercase justify-center px-6 py-3 bg-gradient-to-r from-fuchsia-700 to-cyan-600 text-white font-semibold rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300"
         >
           <span className="mr-2">Get Your First AI-Generated Blog Post Now</span>
           <MdOutlineGeneratingTokens className="text-2xl md:block hidden" />
-        </button>
+        </Link>
       </div>
 
       <div className="md:w-[80%] w-full mx-auto md:mt-36 mt-20">
