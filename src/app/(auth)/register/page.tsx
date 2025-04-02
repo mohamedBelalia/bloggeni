@@ -12,7 +12,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { passwordMatchSchema } from "@/validation/passwordMatchSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { registerUser } from "./action";
@@ -42,23 +42,7 @@ export default function Register() {
     },
   });
 
-  //   const handleSubmit = async (data: z.infer<typeof formSchema>) => {
-  //     setServerError(null);
-  //     const response = await registerUser({
-  //       email: data.email,
-  //       password: data.password,
-  //       passwordConfirm: data.passwordConfirm,
-  //     });
 
-  //     if (response.error) {
-  //       setServerError(response.message);
-  //     } else {
-  //       // Handle successful registration (e.g., show a success message or redirect)
-  //       router.push("/register/confirmation");
-  //       console.log(response.message);
-  //     }
-  //     console.log("hey: ", response);
-  //   };
   const handleSubmit = async (data: z.infer<typeof formSchema>) => {
     setServerError(null);
     setIsLoading(true); // Set loading to true when submission starts
@@ -92,7 +76,9 @@ export default function Register() {
       <div className="w-[380px]">
 
         <div className="mb-10">
-          <GoogleSignin />
+          <Suspense fallback={<div>Loading...</div>}>
+            <GoogleSignin />
+          </Suspense>
         </div>
 
         <div className="flex justify-center items-center mb-5">
