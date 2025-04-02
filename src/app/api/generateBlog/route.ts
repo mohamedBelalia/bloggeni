@@ -9,7 +9,7 @@ export async function POST(request: Request) {
             );
         }
 
-        const apiKey = process.env.OPENROUTER_API_KEY ?? "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";
+        const apiKey = "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";
         if (!apiKey) {
             return new Response(
                 JSON.stringify({ message: "Missing API Key. Set OPENROUTER_API_KEY in Vercel." }),
