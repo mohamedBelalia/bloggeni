@@ -2,7 +2,7 @@ export async function POST(request: Request) {
     try {
         const { title, keywords, language, size, tone, details } = await request.json();
 
-        if (!title || !keywords || !language || !details ) {
+        if (!title || !keywords || !language || !details) {
             return new Response(
                 JSON.stringify({ message: `Missing required fields title : ${title} | keys :${keywords} | lang: ${language} | details ${details}` }),
                 { status: 400 }
@@ -56,27 +56,45 @@ export async function POST(request: Request) {
             }),
         });
 
-        const contentType = apiResponse.headers.get("content-type");
-        const textResponse = await apiResponse.text(); // Read response before parsing
-
-        if (!contentType || !contentType.includes("application/json")) {
-            console.error("Unexpected response from OpenRouter:", textResponse);
-            return new Response(
-                JSON.stringify({ message: "Invalid response from OpenRouter", details: textResponse }),
-                { status: 500 }
-            );
-        }
-
+        const textResponse = await apiResponse.text();
         const data = JSON.parse(textResponse);
 
-        if (!apiResponse.ok || !data.choices || !data.choices[0]) {
+        if (!apiResponse.ok || !data.choices || !data.choices[0]?.message?.content) {
             return new Response(
                 JSON.stringify({ message: "Error generating blog post", details: data }),
                 { status: 500 }
             );
         }
 
-        return new Response(JSON.stringify({ result: data.choices[0].message.content }), { status: 200 });
+        const blogContent = data.choices[0].message.content;
+
+        return new Response(JSON.stringify({ result: blogContent }), { status: 200 });
+        // const contentType = apiResponse.headers.get("content-type");
+        // const textResponse = await apiResponse.text(); // Read response before parsing
+
+        // return new Response(
+        //     JSON.stringify({ result: textResponse }), 
+        //     { status: 200 }
+        // );
+
+        // if (!contentType || !contentType.includes("application/json")) {
+        //     console.error("Unexpected response from OpenRouter:", textResponse);
+        //     return new Response(
+        //         JSON.stringify({ message: "Invalid response from OpenRouter", details: textResponse }),
+        //         { status: 500 }
+        //     );
+        // }
+
+        // const data = JSON.parse(textResponse);
+
+        // if (!apiResponse.ok || !data.choices || !data.choices[0]) {
+        //     return new Response(
+        //         JSON.stringify({ message: "Error generating blog post", details: data }),
+        //         { status: 500 }
+        //     );
+        // }
+
+        // return new Response(JSON.stringify({ result: data.choices[0].message.content }), { status: 200 });
     } catch (error) {
         console.error("Server Error:", error);
         return new Response(
