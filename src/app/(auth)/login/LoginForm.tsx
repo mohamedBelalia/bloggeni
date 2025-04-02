@@ -66,7 +66,7 @@ export default function LoginForm() {
   };
 
   // pass the email value to forget password page
-  const email = form.getValues("email");
+  // const email = form.getValues("email");
 
   return (
     <main className="flex flex-col justify-center items-center min-h-screen">
