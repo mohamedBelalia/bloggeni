@@ -5,6 +5,7 @@ import ThreeSteps from "./ThreeSteps";
 import OldSeoGoodB from "./OldSeoGoodB";
 import { supabase } from "@/lib/supabase";
 import Link from "next/link";
+import Section4 from "./Section4";
 
 export default function Home() {
 
@@ -21,7 +22,7 @@ export default function Home() {
 
 
   return (
-    <div className="mt-12 mb-64">
+    <div className="mt-12">
 
       <div className="md:w-[75%] w-[90%] mx-auto flex gap-5 mb-6">
         <div className="md:w-1/3 w-full p-2 flex justify-center flex-col items-center">
@@ -68,6 +69,7 @@ export default function Home() {
       <div className="md:w-[80%] w-full mx-auto md:mt-36 mt-20">
         <ThreeSteps />
         <OldSeoGoodB />
+        <Section4 />
       </div>
     </div>
   );
