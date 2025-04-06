@@ -46,7 +46,7 @@ export default function PricingPage() {
     <div className="bg-white text-gray-900 min-h-screen">
       <section className="text-center py-20 px-4">
         <h1 className="text-4xl font-bold mb-4">Simple Pricing, Powerful Results</h1>
-        <p className="text-lg text-gray-600 mb-10">Start free. Upgrade when you're ready.</p>
+        <p className="text-lg text-gray-600 mb-10">Start free. Upgrade when you&apos;re ready.</p>
 
         <div className="grid gap-8 md:grid-cols-3 max-w-6xl mx-auto">
           {plans.map((plan, index) => (
