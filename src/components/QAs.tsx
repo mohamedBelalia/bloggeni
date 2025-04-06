@@ -36,7 +36,7 @@ export default function FAQAccordion() {
   useEffect(() => {
     if (openIndex !== null && contentRefs.current[openIndex]) {
       const content = contentRefs.current[openIndex];
-      content?.scrollHeight; // Force reflow to ensure smooth animation
+      content?.scrollHeight;
     }
   }, [openIndex]);
 

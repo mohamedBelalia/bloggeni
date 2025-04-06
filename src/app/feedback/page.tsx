@@ -48,7 +48,7 @@ const Feedback = () => {
   return (
     <div className="mt-5 md:w-[80%] w-[90%] mx-auto">
       <h1 className="text-center font-semibold text-4xl mt-14">
-        We'd Love to Hear From You!
+        We&apos;d Love to Hear From You!
       </h1>
       <p className="text-center font-medium text-gray-600 mt-5 md:w-[60%] w-full mx-auto">
         Your experience matters to us. Whether you have a suggestion, a bug report,
