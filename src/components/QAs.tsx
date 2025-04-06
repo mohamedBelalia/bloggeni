@@ -36,7 +36,8 @@ export default function FAQAccordion() {
   useEffect(() => {
     if (openIndex !== null && contentRefs.current[openIndex]) {
       const content = contentRefs.current[openIndex];
-      content?.scrollHeight;
+      const a = content?.scrollHeight;
+      console.log(a);
     }
   }, [openIndex]);
 
