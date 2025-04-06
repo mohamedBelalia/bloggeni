@@ -8,7 +8,7 @@ export default function AboutPage() {
       <section className="max-w-4xl mx-auto px-4 py-20">
         <h1 className="text-4xl font-bold text-center mb-4 text-[#652293]">About Me & The Project</h1>
         <p className="text-lg text-center text-gray-600 mb-12">
-          This isn’t just another tool — it's something I built to make your life easier. Here's a little bit about why I created it and how it can help you.
+          This isn’t just another tool , it&apos;s something I built to make your life easier. Here&apos;s a little bit about why I created it and how it can help you.
         </p>
 
         <div className="grid md:grid-cols-2 gap-10 items-start">
@@ -19,10 +19,10 @@ export default function AboutPage() {
               I’m a full-stack developer who’s passionate about making things that help people create without all the stress. I know firsthand how overwhelming it can be to manage content, SEO, and everything else when you’re just trying to run a business or blog.
             </p>
             <p className="text-gray-700 mb-4">
-              That’s why I created this tool — to help you generate high-quality blog posts, fast. I wanted to make something that anyone could use, whether you’re a business owner, freelancer, or someone who just doesn’t have time to write every day.
+              That’s why I created this tool  to help you generate high-quality blog posts, fast. I wanted to make something that anyone could use, whether you’re a business owner, freelancer, or someone who just doesn’t have time to write every day.
             </p>
             <p className="text-gray-700">
-              This whole thing is built by me — from the idea to the code, and I’m really proud of how it’s turned out. I hope it helps you take your content game to the next level.
+              This whole thing is built by me from the idea to the code, and I’m really proud of how it’s turned out. I hope it helps you take your content game to the next level.
             </p>
           </div>
 
@@ -30,12 +30,12 @@ export default function AboutPage() {
           <div className="bg-gray-50 rounded-2xl shadow p-6">
             <h2 className="text-2xl font-semibold mb-4 text-[#652293]">Why I Created This Tool</h2>
             <p className="text-gray-700 mb-4">
-              I built this because I saw a gap — there are plenty of tools that claim to make content easier, but most are either too complex or just don't get the tone right. Here’s what I aimed for with this tool:
+              I built this because I saw a gap  there are plenty of tools that claim to make content easier, but most are either too complex or just don&apos;t get the tone right. Here’s what I aimed for with this tool:
             </p>
             <ul className="space-y-4 list-disc list-inside text-gray-700">
               <li>💡 Fast, efficient AI that actually understands your brand’s tone and voice.</li>
               <li>🌍 It’s built for people who want personalized, cultural style options (like Moroccan flair) in their content.</li>
-              <li>🛠 No complicated setup — just plug it into your WordPress or Shopify and start posting.</li>
+              <li>🛠 No complicated setup  just plug it into your WordPress or Shopify and start posting.</li>
               <li>🚀 A streamlined experience that gets out of your way, so you can focus on what matters: running your business.</li>
             </ul>
             <p className="text-gray-700">
