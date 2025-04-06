@@ -12,8 +12,8 @@ const Footer: React.FC = () => {
           <a href="/contact" className="text-sm hover:underline">
             Contact
           </a>
-          <a href="/privacy" className="text-sm hover:underline">
-            Privacy Policy
+          <a href="/terms-and-conditions" className="text-sm hover:underline">
+            Terms And Conditions
           </a>
         </div>
       </div>
