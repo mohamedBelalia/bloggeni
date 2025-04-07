@@ -28,6 +28,9 @@ export default function SaveBlog({ content, title }: SaveBlogProps) {
         body: JSON.stringify({ title: mainTitle, content }),
       });
 
+      console.log(res);
+
+
       const responseData = await res.json();
       if (!res.ok) throw new Error(responseData.error || "Failed to save blog");
 
@@ -51,13 +54,24 @@ export default function SaveBlog({ content, title }: SaveBlogProps) {
           <Button className="mt-2 px-4 py-2 bg-[#076d81] text-white rounded cursor-pointer hover:bg-[#076d81]">Save <IoSaveOutline /></Button>
         </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">
-          <DialogHeader>
-            <DialogTitle>Save Your Generated Blog</DialogTitle>
-            <DialogDescription>
-              You can access your saved blog by going to: <br />
-              Account &#10148; Saved Blogs <br />
-            </DialogDescription>
-          </DialogHeader>
+          {
+            !success
+            ?
+            <DialogHeader>
+              <DialogTitle>Save Your Generated Blog</DialogTitle>
+              <DialogDescription>
+                You can access your saved blog by going to: <br />
+                Account &#10148; Saved Blogs <br />
+              </DialogDescription>
+            </DialogHeader>
+            :
+            <DialogHeader>
+              <DialogTitle></DialogTitle>
+              <DialogDescription>
+              </DialogDescription>
+            </DialogHeader>
+          }
+
           {
             success == null
               ?
@@ -78,7 +92,7 @@ export default function SaveBlog({ content, title }: SaveBlogProps) {
               </div>
               :
               success === true
-              && <div>Success</div>
+              && <div className="text-green-600 font-semibold text-lg text-center">Your blog has been successfully saved</div>
           }
 
           <DialogFooter>
@@ -86,9 +100,9 @@ export default function SaveBlog({ content, title }: SaveBlogProps) {
               loading
                 ? <Button disabled className="mt-2 px-4 py-2 bg-[#652293] hover:bg-[#652293] text-white rounded cursor-not-allowed">Saving ...</Button>
                 : success == null ?
-                <Button className="mt-2 px-4 py-2 bg-[#652293] hover:bg-[#652293] text-white rounded cursor-pointer" onClick={handleSave} type="submit">Save It</Button>
-                : success == true && 
-                <Button className="mt-2 px-4 py-2 bg-[#652293] hover:bg-[#652293] text-white rounded cursor-pointer" type="submit">Cancel</Button>
+                  <Button className="mt-2 px-4 py-2 bg-[#652293] hover:bg-[#652293] text-white rounded cursor-pointer" onClick={handleSave} type="submit">Save It</Button>
+                  : success == true && <div></div>
+              // <Button className="mt-2 px-4 py-2 bg-[#652293] hover:bg-[#652293] text-white rounded cursor-pointer" type="submit">Cancel</Button>
             }
           </DialogFooter>
         </DialogContent>

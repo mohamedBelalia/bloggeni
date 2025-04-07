@@ -50,12 +50,12 @@ export default function AboutPage() {
         <p className="text-gray-700 mb-6 max-w-xl mx-auto">
           Whether you’re using the tool or just want to chat about how AI is changing the content game, I’d love to hear from you. If you have any questions, feedback, or just want to connect, don’t hesitate to reach out.
         </p>
-        <a
+        <Link
           href="/contact"
           className="inline-block bg-[#652293] hover:bg-[#531a7a] text-white px-6 py-3 rounded-xl font-semibold transition"
         >
           Contact Me
-        </a>
+        </Link>
       </section>
 
     </div>

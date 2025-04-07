@@ -34,7 +34,6 @@ const plans = [
       'Unlimited blog posts',
       'All Growth features',
       'Priority support',
-      'Team access (3 users)',
     ],
     cta: 'Go Unlimited',
     highlighted: false,

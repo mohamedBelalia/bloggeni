@@ -36,19 +36,6 @@ export default function ContactPage() {
         </div>
       </div>
 
-      <footer className="mt-12 text-sm text-gray-500">
-        <div className="space-x-4">
-          <a href="/privacy" className="hover:underline">
-            Privacy Policy
-          </a>
-          <a href="/terms" className="hover:underline">
-            Terms of Service
-          </a>
-          <a href="/pricing" className="hover:underline">
-            Pricing
-          </a>
-        </div>
-      </footer>
     </div>
   );
 }
