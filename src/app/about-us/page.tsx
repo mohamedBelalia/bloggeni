@@ -33,10 +33,10 @@ export default function AboutPage() {
               I built this because I saw a gap  there are plenty of tools that claim to make content easier, but most are either too complex or just don&apos;t get the tone right. Here’s what I aimed for with this tool:
             </p>
             <ul className="space-y-4 list-disc list-inside text-gray-700">
-              <li>💡 Fast, efficient AI that actually understands your brand’s tone and voice.</li>
-              <li>🌍 It’s built for people who want personalized, cultural style options (like Moroccan flair) in their content.</li>
-              <li>🛠 No complicated setup  just plug it into your WordPress or Shopify and start posting.</li>
-              <li>🚀 A streamlined experience that gets out of your way, so you can focus on what matters: running your business.</li>
+              <li>Fast, efficient AI that actually understands your brand’s tone and voice.</li>
+              <li>It’s built for people who want personalized, cultural style options.</li>
+              <li>No complicated setup  just plug it into your WordPress or Shopify and start posting.</li>
+              <li>A streamlined experience that gets out of your way, so you can focus on what matters: running your business.</li>
             </ul>
             <p className="text-gray-700">
               At the end of the day, I wanted to build something that I’d want to use myself. And I think that’s reflected in how easy it is to get started and start seeing results.

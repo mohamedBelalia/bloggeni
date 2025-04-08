@@ -46,7 +46,7 @@ const Feedback = () => {
   };
 
   return (
-    <div className="mt-5 md:w-[80%] w-[90%] mx-auto">
+    <div className="mt-5 md:w-[80%] w-[90%] mx-auto min-h-screen">
       <h1 className="text-center font-semibold text-4xl mt-14">
         We&apos;d Love to Hear From You!
       </h1>
