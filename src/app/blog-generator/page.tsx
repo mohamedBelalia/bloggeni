@@ -54,7 +54,7 @@ export default function BlogGeneratePage() {
 
 
   return (
-    <div className="min-h-screen md:p-10 p-5 bg-gray-100 flex flex-col md:flex-row gap-10">
+    <div className="min-h-screen md:p-10 p-5 bg-white flex flex-col md:flex-row gap-10">
 
       <div className="md:w-1/3 w-full">
         <BlogGenForm getBlogData={setBlogData} generateBlogFn={generateBlog} getUserTitle={setUserTitle} />
@@ -79,7 +79,7 @@ export default function BlogGeneratePage() {
               : <div>
                 <div className="w-full flex justify-end mb-6 items-center gap-7">
                   <SaveBlog content={generatedBlog} title={userTitle} />
-                  <WordpressPublish markdown={generatedBlog} />
+                  <WordpressPublish markdown={generatedBlog} blogTitle={userTitle} />
                   <DownloadHtml markedText={generatedBlog} title={userTitle} />
                 </div>
                 <MDXEditor mdxData={generatedBlog} getGeneratedBlog={setGeneratedBlog} />

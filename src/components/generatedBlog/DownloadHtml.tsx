@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { marked } from "marked";
 import { FaHtml5 } from "react-icons/fa";
+import { Button } from "../ui/button";
 
 type DownloadHtmlProps = {
     markedText: string,
@@ -47,12 +48,12 @@ const DownloadHtml = ({ markedText , title}: DownloadHtmlProps) => {
     };
 
     return (
-        <button
+        <Button
             onClick={convertAndDownload}
-            className="mt-2 px-4 py-2 bg-[#652293] text-white rounded cursor-pointer flex justify-center items-center gap-2.5"
+            className="mt-2 px-4 py-2 bg-[#652293] hover:bg-[#652293] text-white rounded cursor-pointer flex justify-center items-center gap-2.5"
         >
             Download as HTML <FaHtml5 size={20} />
-       </button>
+       </Button>
     );
 }
 
