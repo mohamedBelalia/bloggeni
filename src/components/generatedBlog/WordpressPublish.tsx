@@ -1,5 +1,6 @@
 import { marked } from 'marked';
 import React from 'react'
+import { FaWordpress } from 'react-icons/fa';
 
 type WordpressPublishProps = {
     markdown: string;
@@ -10,10 +11,10 @@ const WordpressPublish = ({ markdown }: WordpressPublishProps) => {
     async function publishPost(title: string, markdownContent: string) {
         const htmlContent = marked(markdownContent);
         const username = "elouazzani.m.a@gmail.com";
-        const appPassword = "kqWz qmEr fyP0 xLTR bspu gIDK";
+        const appPassword = "uS6E 0IJK CAAw Xna5 rFPU Hozt";
         const auth = btoa(`${username}:${appPassword}`);
 
-        const response = await fetch("https://dmcmarrakech.com/wp-json/wp/v2/posts", {
+        const response = await fetch("https://desiertotours.es/wp-json/wp/v2/posts", {
             method: "POST",
             headers: {
                 "Authorization": `Basic ${auth}`,
@@ -39,8 +40,8 @@ const WordpressPublish = ({ markdown }: WordpressPublishProps) => {
     return (
         <button
             onClick={publishWP}
-            className="mt-2 px-4 py-2 bg-[#076d81] text-white rounded cursor-pointer">
-            Publish to Wordpress
+            className="mt-2 px-4 py-2 bg-[#2271b1] text-white rounded cursor-pointer flex items-center gap-3">
+            Publish to Wordpress <FaWordpress size={23} />
         </button>
     )
 }

@@ -9,6 +9,7 @@ import DownloadHtml from "@/components/generatedBlog/DownloadHtml";
 // import WordpressPublish from "@/components/generatedBlog/WordpressPublish";
 import { FaEarlybirds } from "react-icons/fa";
 import SaveBlog from "@/components/generatedBlog/SaveBlog";
+import WordpressPublish from "@/components/generatedBlog/WordpressPublish";
 
 export default function BlogGeneratePage() {
   const [generatedBlog, setGeneratedBlog] = useState("");
@@ -78,7 +79,7 @@ export default function BlogGeneratePage() {
               : <div>
                 <div className="w-full flex justify-end mb-6 items-center gap-7">
                   <SaveBlog content={generatedBlog} title={userTitle} />
-                  {/* <WordpressPublish markdown={generatedBlog} /> */}
+                  <WordpressPublish markdown={generatedBlog} />
                   <DownloadHtml markedText={generatedBlog} title={userTitle} />
                 </div>
                 <MDXEditor mdxData={generatedBlog} getGeneratedBlog={setGeneratedBlog} />
