@@ -49,8 +49,8 @@ const JobForm = () => {
       
       setJobId(data.jobId); // Store the job ID
       setLoading(false);
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err) {
+      setError("error");
       setLoading(false);
     }
   };
