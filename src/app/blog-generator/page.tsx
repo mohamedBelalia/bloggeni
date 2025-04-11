@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import BlogGenForm from "./BlogGenForm";
 import { IBlogData } from "@/lib/types";
 import MDXEditor from "@/components/MDXEditor";
@@ -10,22 +10,28 @@ import DownloadHtml from "@/components/generatedBlog/DownloadHtml";
 import { FaEarlybirds } from "react-icons/fa";
 import SaveBlog from "@/components/generatedBlog/SaveBlog";
 import WordpressPublish from "@/components/generatedBlog/WordpressPublish";
+import { supabase } from '@/lib/supabase';
 
 export default function BlogGeneratePage() {
   const [generatedBlog, setGeneratedBlog] = useState("");
   const [loading, setLoading] = useState(false);
-  const [userTitle , setUserTitle] = useState<string>("") 
+  const [userTitle, setUserTitle] = useState<string>("")
+  const [pending , setPending] = useState(false);
+  // ######################
+  const [jobId, setJobId] = useState<string | null>(null);
 
   const [blogData, setBlogData] = useState<IBlogData>({ title: "", keywords: "", language: "", size: "", tone: "", details: "" });
 
   const generateBlog = async () => {
     setLoading(true);
+    setPending(true);
     setGeneratedBlog("");
 
     try {
-      console.log(blogData);
 
-      const response = await fetch("/api/generateBlog", {
+      setLoading(true);
+
+      const response = await fetch("/api/jobgenerate", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -40,17 +46,54 @@ export default function BlogGeneratePage() {
         }),
       });
 
-      const data = await response.json();
-      if (response.ok) {
-        setGeneratedBlog(data.result);
-      } else {
-        alert(data.message || "Error generating blog content");
+      if (!response.ok) {
+        throw new Error("Failed to create job");
       }
+
+      const data = await response.json();
+
+      setJobId(data.jobId);
+      setLoading(false);
     } catch (error) {
-      alert(`Error generating blog post ${error}`);
+      alert(`Error generating blog job id ${error}`);
     }
-    setLoading(false);
+    finally {
+      setLoading(false);
+    }
   };
+
+   const pollJobStatus = async (jobId: string) => {
+      const { data, error } = await supabase
+        .from('blog_jobs')
+        .select('status, result')
+        .eq('id', jobId)
+        .single();
+    
+      if (error) {
+        console.error('Polling error:', error.message);
+        return;
+      }
+    
+      if (data.status === 'done') {
+        setGeneratedBlog(data.result);
+        setPending(false);
+      } else if (data.status === 'error') {
+        console.error('Job failed');
+      }
+    };
+  
+    useEffect(() => {
+      const interval = setInterval(() => {
+        if (jobId) {
+          pollJobStatus(jobId);
+        }
+      }, 5000);
+
+      console.log("jobId", jobId);
+      
+    
+      return () => clearInterval(interval);
+    }, [jobId]);
 
 
   return (
@@ -62,7 +105,7 @@ export default function BlogGeneratePage() {
       <div className="border-0 border-l border-gray-400"></div>
       <div className="w-full">
         {
-          loading
+          pending || loading 
             ?
             <div className="w-full h-[80%] border border-gray-100 flex justify-center items-center flex-col ">
               <Image src={"/duck-loading.gif"} alt="generating the blog" width={300} height={300} />

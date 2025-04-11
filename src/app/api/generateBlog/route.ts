@@ -36,7 +36,7 @@ export async function POST(request: Request) {
                 6. **Call to Action (CTA):** End with a natural and compelling CTA, encouraging engagement, comments, or social sharing.  
 
                 ### **Formatting & Style:**  
-                - Keep paragraphs short (2-4 sentences max) for readability.  
+                - Keep paragraphs short (5-8 sentences max) for readability.  
                 - Use a mix of simple and complex sentences to maintain a natural flow.  
                 - Avoid robotic repetition and keep the tone dynamic and engaging.  
                 - If storytelling is preferred, add a relatable anecdote or an analogy to keep readers hooked.  
