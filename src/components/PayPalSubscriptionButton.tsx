@@ -17,6 +17,7 @@ export default function PayPalSubscriptionButton({
         clientId: process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID!,
         intent: "subscription",
         vault: true,
+        environment: "production",
     }}
     >
       <PayPalButtons
