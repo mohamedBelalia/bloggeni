@@ -46,26 +46,26 @@ const plans = [
 export default function PricingPage() {
 
 
-  const handleSuccess = (subscriptionId: string) => {
-    console.log("User subscribed successfully: ", subscriptionId);
-    handleSubscriptionSuccess(subscriptionId, '39449775-b6a3-472a-84da-b70510d6a929');
-  };
+  // const handleSuccess = (subscriptionId: string) => {
+  //   console.log("User subscribed successfully: ", subscriptionId);
+  //   handleSubscriptionSuccess(subscriptionId, '39449775-b6a3-472a-84da-b70510d6a929');
+  // };
 
-  const handleSubscriptionSuccess = async (subscriptionId: string, userId: string) => {
-    const res = await fetch('/api/paypal/subscription-details', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ subscriptionId, userId }),
-    });
+  // const handleSubscriptionSuccess = async (subscriptionId: string, userId: string) => {
+  //   const res = await fetch('/api/paypal/subscription-details', {
+  //     method: 'POST',
+  //     headers: { 'Content-Type': 'application/json' },
+  //     body: JSON.stringify({ subscriptionId, userId }),
+  //   });
   
-    const data = await res.json();
+  //   const data = await res.json();
   
-    if (data.success) {
-      console.log('Subscription saved:', data.subscription);
-    } else {
-      console.error('Error saving subscription:', data.error);
-    }
-  };
+  //   if (data.success) {
+  //     console.log('Subscription saved:', data.subscription);
+  //   } else {
+  //     console.error('Error saving subscription:', data.error);
+  //   }
+  // };
   
 
   return (

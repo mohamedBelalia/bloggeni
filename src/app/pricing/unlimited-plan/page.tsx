@@ -8,6 +8,9 @@ export default async function CheckoutUmimitedPage() {
     const supabase = createClient();
     const { data, error } = await supabase.auth.getUser();
     
+    if(error) {
+        console.log(error);
+     }
 
     return (
         <div>

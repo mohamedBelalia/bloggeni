@@ -8,6 +8,10 @@ export default async function CheckoutGrowtPage() {
      const supabase = createClient();
      const { data, error } = await supabase.auth.getUser();
 
+     if(error) {
+        console.log(error);
+     }
+
     return (
         <div>
             <CheckoutGrowthP userId={data.user?.id} />
