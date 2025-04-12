@@ -64,7 +64,7 @@ export default function Register() {
       console.log(error)
       setServerError("An unexpected error occurred. Please try again.");
     } finally {
-      setIsLoading(false); // Set loading to false when submission ends
+      setIsLoading(false);
     }
   };
 

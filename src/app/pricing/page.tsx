@@ -1,39 +1,42 @@
 'use client';
-
 import { Check } from 'lucide-react';
 
 const plans = [
   {
     name: 'Starter',
+    path:'/pricing/starter-plan',
     price: 'Free',
     features: [
       '3 blog posts / month',
       'Basic SEO',
       'Limited customization',
-      'Supabase storage access',
+      'Storage access',
     ],
     cta: 'Start Free',
     highlighted: false,
   },
   {
     name: 'Growth',
+    path:'/pricing/growth-plan',
     price: '$19/mo',
     features: [
       '30 blog posts / month',
-      'Advanced SEO + cultural style options',
-      'Custom tone/style generation',
-      'Auto-publish to WordPress & Shopify',
+      'Advanced SEO',
+      'Custom Tone',
+      'Add Extra Details',
+      'Download as HTML',
     ],
     cta: 'Upgrade Now',
     highlighted: true,
   },
   {
     name: 'Unlimited',
+    path:'/pricing/unlimited-plan',
     price: '$49/mo',
     features: [
       'Unlimited blog posts',
       'All Growth features',
-      'Priority support',
+      'Auto-publish to WordPress',
     ],
     cta: 'Go Unlimited',
     highlighted: false,
@@ -41,6 +44,30 @@ const plans = [
 ];
 
 export default function PricingPage() {
+
+
+  const handleSuccess = (subscriptionId: string) => {
+    console.log("User subscribed successfully: ", subscriptionId);
+    handleSubscriptionSuccess(subscriptionId, '39449775-b6a3-472a-84da-b70510d6a929');
+  };
+
+  const handleSubscriptionSuccess = async (subscriptionId: string, userId: string) => {
+    const res = await fetch('/api/paypal/subscription-details', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ subscriptionId, userId }),
+    });
+  
+    const data = await res.json();
+  
+    if (data.success) {
+      console.log('Subscription saved:', data.subscription);
+    } else {
+      console.error('Error saving subscription:', data.error);
+    }
+  };
+  
+
   return (
     <div className="bg-white text-gray-900 min-h-screen">
       <section className="text-center py-20 px-4">
@@ -70,7 +97,9 @@ export default function PricingPage() {
                   ))}
                 </ul>
               </div>
-              <button
+              {/* <PayPalSubscriptionButton planId={plan.priceId} onSuccess={handleSuccess} /> */}
+              <a
+                href={plan.path}
                 className={`w-full mt-auto py-2 px-4 rounded-xl text-white cursor-pointer font-semibold shadow ${
                   plan.highlighted
                     ? 'bg-[#652293] hover:bg-[#531a7a]'
@@ -78,7 +107,7 @@ export default function PricingPage() {
                 }`}
               >
                 {plan.cta}
-              </button>
+              </a>
             </div>
           ))}
         </div>
