@@ -4,6 +4,8 @@
 import PayPalSubscriptionButton from '@/components/PayPalSubscriptionButton';
 import { Button } from '@/components/ui/button';
 import React from 'react'
+import { redirect } from 'next/navigation'
+import Link from 'next/link';
 
 const planTitle = 'growth';
 const planId = 'P-51J84418L8135771CM75ZVIQ';
@@ -29,9 +31,9 @@ const CheckoutGrowthP = ({ userId }:{userId : string | undefined}) => {
         const data = await res.json();
 
         if (data.success) {
-            console.log('Subscription saved:', data.subscription);
+            redirect('/user/subscriptions')
         } else {
-            console.error('Error saving subscription:', data.error);
+            alert('Error saving subscription , please contact support')
         }
     };
 
@@ -75,11 +77,10 @@ const CheckoutGrowthP = ({ userId }:{userId : string | undefined}) => {
                     userId && userId !== ''
                     ?
                     <div>
-                        {userId}
                         <PayPalSubscriptionButton planId='P-51J84418L8135771CM75ZVIQ' onSuccess={handleSuccess} />
                     </div>
                     : 
-                    <Button>Login First id:{userId}</Button>
+                    <Link href={'/login'}>Login First id:{userId}</Link>
                 }
             </div>
         </div>

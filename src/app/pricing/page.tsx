@@ -4,7 +4,7 @@ import { Check } from 'lucide-react';
 const plans = [
   {
     name: 'Starter',
-    path:'/pricing/starter-plan',
+    path:'',
     price: 'Free',
     features: [
       '3 blog posts / month',
@@ -12,7 +12,7 @@ const plans = [
       'Limited customization',
       'Storage access',
     ],
-    cta: 'Start Free',
+    cta: 'Assigned by default',
     highlighted: false,
   },
   {

@@ -3,6 +3,7 @@
 
 import PayPalSubscriptionButton from '@/components/PayPalSubscriptionButton';
 import { Button } from '@/components/ui/button';
+import { redirect } from 'next/navigation';
 import React from 'react'
 
 const planTitle = 'unlimited';
@@ -29,9 +30,10 @@ const CheckoutUnlim = ({ userId }:{userId : string | undefined}) => {
         const data = await res.json();
 
         if (data.success) {
-            console.log('Subscription saved:', data.subscription);
+            redirect('/user/subscriptions')
+            // console.log('Subscription saved:', data.subscription);
         } else {
-            console.error('Error saving subscription:', data.error);
+            alert('Error saving subscription , please contact support')
         }
     };
 

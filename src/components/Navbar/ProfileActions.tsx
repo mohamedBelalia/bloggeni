@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import EmailAvatar from "./EmailAvatar"
 import Link from "next/link";
+import { CiMoneyCheck1 } from "react-icons/ci";
 // import LogoutButton from "./LogoutButton"
 
 export function ProfileActions({email} : {email : string}) {
@@ -31,6 +32,11 @@ export function ProfileActions({email} : {email : string}) {
                     <DropdownMenuItem>
                         <Cloud />
                         <Link href={"/saved-blogs"}>Saved Blogs</Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem>
+                    <CiMoneyCheck1 />
+                        <Link href={"/user/subscriptions"}>Subscriptions</Link>
                     </DropdownMenuItem>
                 </DropdownMenuGroup>
                 <DropdownMenuSeparator />
