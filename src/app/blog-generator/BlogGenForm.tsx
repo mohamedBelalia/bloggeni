@@ -70,32 +70,42 @@ export default function BlogGenForm({ getBlogData, generateBlogFn, getUserTitle,
   }, [formData, getBlogData]);
 
   return (
-    <form className={`space-y-8 w-full mx-auto py-10 ${blogsCount === 0 && 'pointer-events-none opacity-50'}`}>
-      <div>
-        <label className="block text-sm font-medium mainColor mb-1">Title<span className="text-red-600">*</span></label>
+    <form className={`space-y-6 w-full ${blogsCount === 0 && 'pointer-events-none opacity-50'}`}>
+      <div className="space-y-1">
+        <label className="block text-sm font-medium text-gray-700">
+          Title<span className="text-red-500 ml-1">*</span>
+        </label>
         <Input
           value={formData.title}
           onChange={(e) => handleChange("title", e.target.value)}
           placeholder="Best 3 places to visit in Marrakech"
+          className="input-field"
         />
+        <p className="text-xs text-gray-500">Enter a clear and engaging title for your blog post</p>
       </div>
 
-      <div>
-        <label className="block text-sm font-medium mainColor mb-1">Main Keywords</label>
+      <div className="space-y-1">
+        <label className="block text-sm font-medium text-gray-700">
+          Main Keywords
+        </label>
         <Input
           value={formData.keywords}
           onChange={(e) => handleChange("keywords", e.target.value)}
-          placeholder="marrakech, visit"
+          placeholder="marrakech, visit, travel, morocco"
+          className="input-field"
         />
+        <p className="text-xs text-gray-500">Separate keywords with commas</p>
       </div>
 
-      <div>
-        <label className="block text-sm font-medium mainColor mb-1">Language</label>
+      <div className="space-y-1">
+        <label className="block text-sm font-medium text-gray-700">
+          Language
+        </label>
         <Select
           onValueChange={(value) => handleChange("language", value)}
           value={formData.language}
         >
-          <SelectTrigger>
+          <SelectTrigger className="input-field">
             <SelectValue placeholder="Select The Article's Language" />
           </SelectTrigger>
           <SelectContent>
@@ -106,72 +116,88 @@ export default function BlogGenForm({ getBlogData, generateBlogFn, getUserTitle,
         </Select>
       </div>
 
-      <div>
-        <label className="block text-sm font-medium mainColor mb-1">Article Size</label>
+      <div className="space-y-1">
+        <label className="block text-sm font-medium text-gray-700">
+          Article Size
+        </label>
         <Select
           onValueChange={(value) => handleChange("size", value)}
           value={formData.size}
         >
-          <SelectTrigger>
+          <SelectTrigger className="input-field">
             <SelectValue placeholder="Select The Article's Size" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="short">Short</SelectItem>
-            <SelectItem value="medium">Medium</SelectItem>
-            <SelectItem value="long">Long</SelectItem>
+            <SelectItem value="short">Short (300-500 words)</SelectItem>
+            <SelectItem value="medium">Medium (500-1000 words)</SelectItem>
+            <SelectItem value="long">Long (1000+ words)</SelectItem>
           </SelectContent>
         </Select>
       </div>
 
-      <div>
-        <label className="block text-sm font-medium mainColor mb-1">Tone of Voice</label>
+      <div className="space-y-1">
+        <label className="block text-sm font-medium text-gray-700">
+          Tone of Voice
+        </label>
         <Select
           onValueChange={(value) => handleChange("tone", value)}
           value={formData.tone}
         >
-          <SelectTrigger>
+          <SelectTrigger className="input-field">
             <SelectValue placeholder="Select The Tone" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="formal">Formal</SelectItem>
-            <SelectItem value="casual">Casual</SelectItem>
-            <SelectItem value="informative">Informative</SelectItem>
+            <SelectItem value="formal">Formal (Professional)</SelectItem>
+            <SelectItem value="casual">Casual (Conversational)</SelectItem>
+            <SelectItem value="informative">Informative (Educational)</SelectItem>
           </SelectContent>
         </Select>
       </div>
 
-      <div>
-        <label className="block text-sm font-medium mainColor mb-1">Details to Include</label>
+      <div className="space-y-1">
+        <label className="block text-sm font-medium text-gray-700">
+          Additional Details
+        </label>
         <Textarea
           name="details"
           value={formData.details}
-          onChange={(e) => handleChange("details", e.target.value)}  // Change includedDetails to details
-          placeholder="Include any specific details..."
-          className="resize-none"
+          onChange={(e) => handleChange("details", e.target.value)}
+          placeholder="Include any specific details, requirements, or points you want to cover..."
+          className="input-field resize-none h-32"
         />
+        <p className="text-xs text-gray-500">Add any specific requirements or points you want to include</p>
       </div>
 
-      {
-        blogsCount === 0
-          ?
-          <Link
+      {blogsCount === 0 ? (
+        <Link
           href={'/pricing'}
-            className="flex cursor-pointer w-full items-center uppercase justify-center px-6 py-3 bg-gradient-to-r bg-[#8a5da8] text-white font-semibold rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300"
-            type="button">
-              <span className="mr-2">Upgrade Your Plan</span>
-              <LuLockKeyhole className="text-2xl"  />
-          </Link>
-          :
-          <button
-            type="button"
-            className="flex cursor-pointer w-full items-center uppercase justify-center px-6 py-3 bg-gradient-to-r bg-[#652293] text-white font-semibold rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300"
-            onClick={submitForm}
-          >
-            <span className="mr-2">Generate</span>
-            <MdOutlineGeneratingTokens className="text-2xl" />
-          </button>
-      }
+          className="btn-primary w-full flex items-center justify-center gap-2"
+        >
+          <span>Upgrade Your Plan</span>
+          <LuLockKeyhole className="text-xl" />
+        </Link>
+      ) : (
+        <button
+          type="button"
+          className="btn-primary w-full flex items-center justify-center gap-2"
+          onClick={submitForm}
+          disabled={!formData.title}
+        >
+          <span>Generate Blog Post</span>
+          <MdOutlineGeneratingTokens className="text-xl" />
+        </button>
+      )}
 
+      {blogsCount !== null && (
+        <div className="text-center text-sm text-gray-500">
+          <p>You have {blogsCount} blog posts remaining this month</p>
+          {blogsCount < 3 && (
+            <Link href="/pricing" className="text-primary hover:underline">
+              Upgrade for more posts
+            </Link>
+          )}
+        </div>
+      )}
     </form>
   );
 }

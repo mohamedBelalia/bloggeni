@@ -153,63 +153,91 @@ export default function BlogGeneratePage({ userId }: { userId: string }) {
 
 
   return (
-    <div className="min-h-screen md:p-10 p-5 bg-white flex flex-col md:flex-row gap-10">
-
-      <div className="md:w-1/3 w-full">
-        <BlogGenForm userId={userId} getBlogData={setBlogData} generateBlogFn={generateBlog} getUserTitle={setUserTitle} />
-      </div>
-      <div className="border-0 border-l border-gray-400"></div>
-      <div className="w-full">
-        {/* <div className="flex justify-end">
-            <p className="w-fit px-9 bg-indigo-500 text-white rounded-lg">9/30</p>
-        </div> */}
-        {
-          pending || loading
-            ?
-            <div className="w-full h-[80%] border border-gray-100 flex justify-center items-center flex-col ">
-              <Image src={"/duck-loading.gif"} alt="generating the blog" width={300} height={300} />
-              <h3 className="mainColor text-xl font-semibold">Please Wait a Few Seconds ...</h3>
-              <p className="italic mt-3 text-sm">“Never give up. Great things take time.” - Frank Zane</p>
+    <div className="min-h-screen bg-gray-50">
+      {/* Header Section */}
+      <div className="bg-white shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+          <h1 className="text-2xl font-bold gradient-text">Blog Generator</h1>
+          <div className="flex items-center gap-4">
+            <div className="text-sm text-gray-600">
+              <span className="font-medium">Remaining Posts:</span> 3
             </div>
-            :
-            generatedBlog.length == 0
-              ? <div className="w-full h-[80%] rounded-md border border-gray-100 flex justify-center items-center flex-col">
-                {/* <Image src={"/pro-duck.png"} alt="generating the blog" width={300} height={300} /> */}
-                <FaEarlybirds size={70} />
-                <p>Your generated Blog will appear here</p>
-              </div>
-              : <div>
-                <div className="w-full flex justify-end mb-6 items-center gap-7">
-                  <SaveBlog content={generatedBlog} title={userTitle} />
-                  {
-                    planTitle === 'growth'
-                      ?
-                      <DownloadHtml markedText={generatedBlog} title={userTitle} />
-                      :
-                      planTitle === 'unlimited'
-                        ?
-                        <>
-                          <DownloadHtml markedText={generatedBlog} title={userTitle} />
-                          <WordpressPublish markdown={generatedBlog} blogTitle={userTitle} />
-                        </>
-                        :
-                        <div></div>
-                  }
-                </div>
-                <MDXEditor mdxData={generatedBlog} getGeneratedBlog={setGeneratedBlog} />
-              </div>
-        }
+            <div className="text-sm text-gray-600">
+              <span className="font-medium">Plan:</span> {planTitle.charAt(0).toUpperCase() + planTitle.slice(1)}
+            </div>
+          </div>
+        </div>
       </div>
 
-      {/* {loading ? "Generating..." : "Generate Blog Post"} */}
+      <div className="max-w-7xl mx-auto px-4 py-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          {/* Form Section */}
+          <div className="lg:col-span-4">
+            <div className="bg-white rounded-lg shadow-sm p-6">
+              <h2 className="text-xl font-semibold mb-6 gradient-text">Blog Settings</h2>
+              <BlogGenForm 
+                userId={userId} 
+                getBlogData={setBlogData} 
+                generateBlogFn={generateBlog} 
+                getUserTitle={setUserTitle} 
+              />
+            </div>
+          </div>
 
-      {/* {generatedBlog && (
-        <div className="mt-6 bg-white p-6 rounded shadow-md w-full max-w-2xl">
-          <h2 className="text-xl font-bold mb-2">Generated Blog</h2>
-          <p className="whitespace-pre-line">{generatedBlog}</p>
+          {/* Preview Section */}
+          <div className="lg:col-span-8">
+            <div className="bg-white rounded-lg shadow-sm p-6">
+              <h2 className="text-xl font-semibold mb-6 gradient-text">Blog Preview</h2>
+              {pending || loading ? (
+                <div className="w-full h-[600px] border-2 border-dashed border-gray-200 rounded-lg flex justify-center items-center flex-col">
+                  <Image 
+                    src={"/duck-loading.gif"} 
+                    alt="generating the blog" 
+                    width={200} 
+                    height={200} 
+                    className="mb-4"
+                  />
+                  <h3 className="text-xl font-semibold text-primary mb-2">Generating Your Blog...</h3>
+                  <p className="text-gray-500 text-center max-w-md">
+                    Our AI is crafting your perfect blog post. This usually takes about 30-60 seconds.
+                  </p>
+                  <div className="mt-4 flex items-center gap-2 text-sm text-gray-500">
+                    <div className="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+                    <span>Processing your request</span>
+                  </div>
+                </div>
+              ) : generatedBlog.length === 0 ? (
+                <div className="w-full h-[600px] border-2 border-dashed border-gray-200 rounded-lg flex justify-center items-center flex-col">
+                  <FaEarlybirds size={70} className="text-primary mb-4" />
+                  <h3 className="text-xl font-semibold text-gray-700 mb-2">Your Blog Preview</h3>
+                  <p className="text-gray-500 text-center max-w-md">
+                    Fill out the form and click "Generate" to create your blog post. 
+                    Your generated content will appear here.
+                  </p>
+                </div>
+              ) : (
+                <div>
+                  <div className="flex justify-end gap-4 mb-6">
+                    <SaveBlog content={generatedBlog} title={userTitle} />
+                    {planTitle === 'growth' && (
+                      <DownloadHtml markedText={generatedBlog} title={userTitle} />
+                    )}
+                    {planTitle === 'unlimited' && (
+                      <>
+                        <DownloadHtml markedText={generatedBlog} title={userTitle} />
+                        <WordpressPublish markdown={generatedBlog} blogTitle={userTitle} />
+                      </>
+                    )}
+                  </div>
+                  <div className="border rounded-lg overflow-hidden">
+                    <MDXEditor mdxData={generatedBlog} getGeneratedBlog={setGeneratedBlog} />
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
-      )} */}
-
+      </div>
     </div>
   );
 }
