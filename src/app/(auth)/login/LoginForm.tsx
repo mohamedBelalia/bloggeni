@@ -30,7 +30,7 @@ const formSchema = z.object({
 
 export default function LoginForm() {
   const [serverError, setServerError] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState(false); // Add loading state
+  const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -77,7 +77,7 @@ export default function LoginForm() {
         </h2>
       </div>
 
-      <div className="w-[380px]">
+      <div className="md:w-[380px] w-full">
 
         <div className="mb-10">
           <GoogleSignin />

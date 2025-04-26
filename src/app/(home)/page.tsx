@@ -1,12 +1,10 @@
 "use client"
 import { AiFillStar } from "react-icons/ai";
-import { MdOutlineGeneratingTokens } from "react-icons/md";
 import ThreeSteps from "./ThreeSteps";
 import OldSeoGoodB from "./OldSeoGoodB";
 import { supabase } from "@/lib/supabase";
 import Link from "next/link";
 import Section4 from "./Section4";
-import Image from "next/image";
 import { ArrowRight, CheckCircle, Shield, Zap } from "lucide-react";
 
 export default function Home() {
@@ -36,7 +34,7 @@ export default function Home() {
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
             Generate SEO-optimized, high-quality blog content that ranks and resonates with your audience. 
-            Save time and boost your website's visibility with our advanced AI technology.
+            Save time and boost your website&apos;s visibility with our advanced AI technology.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
@@ -119,38 +117,38 @@ export default function Home() {
             <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
               <FiveStars />
               <p className="text-gray-700 mt-4">
-                "The ultimate AI tool for SEO-optimized blogging! It's transformed how we create content."
+              &quot;The ultimate AI tool for SEO-optimized blogging! It&apos;s transformed how we create content for our websites.&quot;
               </p>
               <div className="mt-4 flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-gray-200"></div>
                 <div>
-                  <p className="font-medium">Sarah M.</p>
-                  <p className="text-sm text-gray-500">Content Marketer</p>
+                  <p className="font-medium">Soufiane Bensediq</p>
+                  <p className="text-sm text-gray-500">Full Stack Web Developer</p>
                 </div>
               </div>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
               <FiveStars />
               <p className="text-gray-700 mt-4">
-                "My go-to AI for effortless content creation! Saves me hours every week."
+              &quot;My go-to AI for effortless content creation! Saves me hours every week.&quot;
               </p>
               <div className="mt-4 flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-gray-200"></div>
                 <div>
-                  <p className="font-medium">John D.</p>
-                  <p className="text-sm text-gray-500">Digital Agency Owner</p>
+                  <p className="font-medium">Abdoulah Allaoui</p>
+                  <p className="text-sm text-gray-500">Copywriter</p>
                 </div>
               </div>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
               <FiveStars />
               <p className="text-gray-700 mt-4">
-                "Best AI blog writer I've ever used! The quality of content is exceptional."
+              &quot;Best AI blog writer I've ever used! The quality of content is exceptional.&quot;
               </p>
               <div className="mt-4 flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-gray-200"></div>
                 <div>
-                  <p className="font-medium">Emily R.</p>
+                  <p className="font-medium">Emily Browns</p>
                   <p className="text-sm text-gray-500">SEO Specialist</p>
                 </div>
               </div>

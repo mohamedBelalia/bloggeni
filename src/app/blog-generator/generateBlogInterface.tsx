@@ -159,12 +159,12 @@ export default function BlogGeneratePage({ userId }: { userId: string }) {
         <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
           <h1 className="text-2xl font-bold gradient-text">Blog Generator</h1>
           <div className="flex items-center gap-4">
-            <div className="text-sm text-gray-600">
+            {/* <div className="text-sm text-gray-600">
               <span className="font-medium">Remaining Posts:</span> 3
             </div>
             <div className="text-sm text-gray-600">
               <span className="font-medium">Plan:</span> {planTitle.charAt(0).toUpperCase() + planTitle.slice(1)}
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
@@ -211,7 +211,7 @@ export default function BlogGeneratePage({ userId }: { userId: string }) {
                   <FaEarlybirds size={70} className="text-primary mb-4" />
                   <h3 className="text-xl font-semibold text-gray-700 mb-2">Your Blog Preview</h3>
                   <p className="text-gray-500 text-center max-w-md">
-                    Fill out the form and click "Generate" to create your blog post. 
+                    Fill out the form and click &quot;Generate&quot; to create your blog post. 
                     Your generated content will appear here.
                   </p>
                 </div>

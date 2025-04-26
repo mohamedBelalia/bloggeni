@@ -1,4 +1,5 @@
 import TimeLine from '@/components/comp-534';
+import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react'
 import { MdOutlineGeneratingTokens } from 'react-icons/md';
@@ -16,11 +17,10 @@ const ThreeSteps = () => {
                 </p>
                 <Link
                     href="/blog-generator"
-                    type="button"
-                    className="flex mt-8 w-fit shadow-cyan-500/50 cursor-pointer items-center uppercase justify-center px-6 py-3 bg-gradient-to-r from-fuchsia-700 to-cyan-600 text-white font-semibold rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300"
+                    className="btn-primary text-lg px-8 py-4 w-fit mt-5 flex items-center gap-2 group"
                 >
-                    <span className="mr-2">Generate Your Blog Post Now</span>
-                    <MdOutlineGeneratingTokens className="text-2xl md:block hidden" />
+                    <span>Generate Your Blog Post Now</span>
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
             </div>
             <div className='md:w-1/2 w-full md:p-0 p-8'>

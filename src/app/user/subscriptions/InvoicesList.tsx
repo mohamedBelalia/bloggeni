@@ -89,7 +89,7 @@ export default function SubscriptionsPage({userId} : {userId : string | undefine
             </div>
             <h3 className="text-xl font-semibold text-gray-800 mb-2">No Active Subscriptions</h3>
             <p className="text-gray-600 mb-6">
-              You don't have any active subscriptions yet. Upgrade your plan to access premium features.
+              You don&apos;t have any active subscriptions yet. Upgrade your plan to access premium features.
             </p>
             <Link
               href="/pricing"

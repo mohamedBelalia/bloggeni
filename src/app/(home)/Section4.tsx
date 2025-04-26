@@ -1,5 +1,5 @@
 import FAQAccordion from '@/components/QAs'
-import { Check } from 'lucide-react'
+import { ArrowRight, Check } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
 
@@ -35,10 +35,10 @@ const Section4 = () => {
             <div className="flex justify-center items-center mt-10">
                 <Link
                     href="/blog-generator"
-                    type="button"
-                    className="flex shadow-cyan-500/50 cursor-pointer items-center uppercase justify-center px-6 py-3 bg-gradient-to-r from-fuchsia-700 to-cyan-600 text-white font-semibold rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300"
+                    className="btn-primary text-lg px-8 py-4 flex items-center gap-2 group"
                 >
-                    <span className="mr-2">Boost Your SEO with AI</span>
+                    <span>Boost Your SEO with AI</span>
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
             </div>
 

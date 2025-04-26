@@ -1,7 +1,6 @@
 'use client';
 
 import Link from "next/link";
-import Image from "next/image";
 import { Mail, Linkedin, Github } from 'lucide-react';
 
 export default function AboutPage() {
@@ -41,12 +40,12 @@ export default function AboutPage() {
                 </Link>
               </h2>
               <p className="text-gray-700 mb-4">
-                I'm a full-stack developer passionate about creating tools that help people create content without the stress. 
-                I understand how overwhelming it can be to manage content, SEO, and everything else when you're trying to run a business or blog.
+                I&apos;m a full-stack developer passionate about creating tools that help people create content without the stress. 
+                I understand how overwhelming it can be to manage content, SEO, and everything else when you&apos;re trying to run a business or blog.
               </p>
               <p className="text-gray-700 mb-6">
-                That's why I created BlogGenius - to help you generate high-quality blog posts quickly and efficiently. 
-                Whether you're a business owner, freelancer, or someone who doesn't have time to write every day, 
+                That&apos;s why I created BlogGenius - to help you generate high-quality blog posts quickly and efficiently. 
+                Whether you&apos;re a business owner, freelancer, or someone who doesn&apos;t have time to write every day, 
                 this tool is designed to make your life easier.
               </p>
               <div className="flex gap-4">
@@ -85,7 +84,7 @@ export default function AboutPage() {
           <h2 className="text-2xl font-semibold mb-6">Why I Created BlogGenius</h2>
           <p className="text-gray-700 mb-6">
             I built BlogGenius because I saw a gap in the market. While there are many tools claiming to make content creation easier, 
-            most are either too complex or don't get the tone right. Here's what I aimed for with this tool:
+            most are either too complex or don&apos;t get the tone right. Here&apos;s what I aimed for with this tool:
           </p>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="space-y-4">
@@ -96,7 +95,7 @@ export default function AboutPage() {
                 <div>
                   <h3 className="font-medium mb-1">Fast, Efficient AI</h3>
                   <p className="text-gray-600 text-sm">
-                    Our AI understands your brand's tone and voice, creating content that feels authentic.
+                    Our AI understands your brand&apos;s tone and voice, creating content that feels authentic.
                   </p>
                 </div>
               </div>
@@ -143,11 +142,11 @@ export default function AboutPage() {
       {/* Call to Action Section */}
       <section className="max-w-4xl mx-auto px-4 py-12">
         <div className="bg-gradient-to-r from-primary to-primary/80 rounded-2xl p-8 md:p-12 text-center text-white">
-          <h2 className="text-2xl font-semibold mb-4">Let's Connect</h2>
+          <h2 className="text-2xl font-semibold mb-4">Let&apos;s Connect</h2>
           <p className="text-white/90 mb-8 max-w-2xl mx-auto">
-            Whether you're using BlogGenius or just want to chat about how AI is changing the content game, 
-            I'd love to hear from you. If you have any questions, feedback, or just want to connect, 
-            don't hesitate to reach out.
+            Whether you&apos;re using BlogGenius or just want to chat about how AI is changing the content game, 
+            I&apos;d love to hear from you. If you have any questions, feedback, or just want to connect, 
+            don&apos;t hesitate to reach out.
           </p>
           <Link
             href="/contact"

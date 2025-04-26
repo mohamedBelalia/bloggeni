@@ -111,7 +111,7 @@ const Feedback = () => {
                   className="input-field"
                 />
                 <p className="text-sm text-gray-500">
-                  We'll only use this to follow up on your feedback if needed.
+                  We&apos;ll only use this to follow up on your feedback if needed.
                 </p>
               </div>
 
@@ -175,8 +175,8 @@ const Feedback = () => {
         <div className="mt-12 text-center text-gray-600">
           <p>
             Have a more urgent issue? Contact our support team at{" "}
-            <a href="mailto:support@bloggenius.com" className="text-primary hover:underline">
-              support@bloggenius.com
+            <a href="mailto:mohamedbelalia.dev@gmail.com" className="text-primary hover:underline">
+              mohamedbelalia.dev@gmail.com
             </a>
           </p>
         </div>
