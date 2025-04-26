@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Menu, X, Home, MessageSquare, DollarSign, Users, LogIn, UserPlus, LogOut, User } from 'lucide-react';
 import { createClient } from '@/utils/supabase/client';
+import { logout } from './action';
 
 interface MobileNavProps {
   isAuthenticated: boolean;
@@ -139,15 +140,16 @@ export default function MobileNav({ isAuthenticated }: MobileNavProps) {
                     <DollarSign className="w-5 h-5" />
                     <span>Subscriptions</span>
                   </Link>
-                  <form action="/auth/signout" method="post">
+                  {/* <form action="/auth/signout" method="post"> */}
                     <button
                       type="submit"
+                      onClick={logout}
                       className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors"
                     >
                       <LogOut className="w-5 h-5" />
                       <span>Log out</span>
                     </button>
-                  </form>
+                  {/* </form> */}
                 </>
               ) : (
                 <>
