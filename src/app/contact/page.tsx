@@ -1,41 +1,104 @@
 'use client';
 
-import { Mail, Phone , Linkedin } from 'lucide-react';
+import { Mail, Phone, Linkedin, MapPin, Globe } from 'lucide-react';
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-100 flex flex-col items-center justify-center px-4">
-      <div className="max-w-2xl w-full bg-white shadow-lg rounded-3xl p-8">
-        <h1 className="text-4xl font-bold text-center text-[#652293] mb-6">
-          Let’s Connect
-        </h1>
-        <p className="text-center text-gray-600 mb-10">
-          I’d love to hear from you whether it’s feedback, questions, or just a friendly hello. Here’s how you can reach me:
-        </p>
+    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+        {/* Header Section */}
+        <div className="text-center mb-12">
+          <h1 className="text-4xl sm:text-5xl font-bold text-[#652293] mb-4">
+            Get in Touch
+          </h1>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Have questions or feedback? We&apos;d love to hear from you. Our team is here to help and will get back to you as soon as possible.
+          </p>
+        </div>
 
-        <div className="space-y-6">
-          <div className="flex items-center">
-            <Mail className="w-6 h-6 text-[#652293] mr-4" />
-            <span className="text-gray-800 font-medium">mohamedbelalia.dev@gmail.com</span>
+        {/* Contact Information Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Email Card */}
+          <div className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+            <div className="flex items-center mb-4">
+              <div className="bg-[#652293]/10 p-3 rounded-lg mr-4">
+                <Mail className="w-6 h-6 text-[#652293]" />
+              </div>
+              <h2 className="text-xl font-semibold text-gray-900">Email</h2>
+            </div>
+            <a 
+              href="mailto:mohamedbelalia.dev@gmail.com" 
+              className="text-gray-800 hover:text-[#652293] transition-colors text-lg"
+            >
+              mohamedbelalia.dev@gmail.com
+            </a>
+            <p className="text-sm text-gray-500 mt-2">For general inquiries and support</p>
           </div>
-          <div className="flex items-center">
-            <Phone className="w-6 h-6 text-[#652293] mr-4" />
-            <span className="text-gray-800 font-medium">+212 678-993059</span>
+
+          {/* Phone Card */}
+          <div className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+            <div className="flex items-center mb-4">
+              <div className="bg-[#652293]/10 p-3 rounded-lg mr-4">
+                <Phone className="w-6 h-6 text-[#652293]" />
+              </div>
+              <h2 className="text-xl font-semibold text-gray-900">Phone</h2>
+            </div>
+            <a 
+              href="tel:+212678993059" 
+              className="text-gray-800 hover:text-[#652293] transition-colors text-lg"
+            >
+              +212 678-993059
+            </a>
+            <p className="text-sm text-gray-500 mt-2">Get in Touch On Whatsapp</p>
           </div>
-          <div className="flex items-center">
-            <Linkedin className="w-6 h-6 text-[#652293] mr-4" />
+
+          {/* LinkedIn Card */}
+          <div className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+            <div className="flex items-center mb-4">
+              <div className="bg-[#652293]/10 p-3 rounded-lg mr-4">
+                <Linkedin className="w-6 h-6 text-[#652293]" />
+              </div>
+              <h2 className="text-xl font-semibold text-gray-900">LinkedIn</h2>
+            </div>
             <a
               href="https://www.linkedin.com/in/mohamed-belalia-0b886a229/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-800 font-medium underline"
+              className="text-gray-800 hover:text-[#652293] transition-colors text-lg"
             >
               Mohamed Belalia
             </a>
+            <p className="text-sm text-gray-500 mt-2">Connect with me on LinkedIn</p>
+          </div>
+
+          {/* Portfolio Card */}
+          <div className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+            <div className="flex items-center mb-4">
+              <div className="bg-[#652293]/10 p-3 rounded-lg mr-4">
+                <Globe className="w-6 h-6 text-[#652293]" />
+              </div>
+              <h2 className="text-xl font-semibold text-gray-900">Portfolio</h2>
+            </div>
+            <a
+              href="https://www.belalia.info"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-800 hover:text-[#652293] transition-colors text-lg"
+            >
+              www.belalia.info
+            </a>
+            <p className="text-sm text-gray-500 mt-2">Check out my Portfolio</p>
+          </div>
+        </div>
+
+        {/* Additional Information */}
+        <div className="mt-12 text-center">
+          <div className="inline-flex items-center text-gray-600">
+            <MapPin className="w-5 h-5 mr-2" />
+            <span>Based in Morocco</span>
           </div>
         </div>
       </div>
-
     </div>
   );
 }

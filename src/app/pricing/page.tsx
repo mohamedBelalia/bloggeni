@@ -7,7 +7,7 @@ const plans = [
     path:'',
     price: 'Free',
     features: [
-      '3 blog posts / month',
+      '5 blog posts / month',
       'Basic SEO',
       'Limited customization',
       'Storage access',

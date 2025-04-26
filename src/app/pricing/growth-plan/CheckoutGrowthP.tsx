@@ -7,7 +7,7 @@ import { redirect } from 'next/navigation'
 import Link from 'next/link';
 
 const planTitle = 'growth';
-const planId = 'P-51J84418L8135771CM75ZVIQ';
+const planId = 'P-33L59819EV611260PNAHE57I';
 
 const CheckoutGrowthP = ({ userId }:{userId : string | undefined}) => {
 
@@ -67,7 +67,7 @@ const CheckoutGrowthP = ({ userId }:{userId : string | undefined}) => {
 
         <div className="text-center mb-4">
             <h2 className="text-gray-700 font-medium mb-2">
-                Secure payment via
+                Secure Payment via PayPal
             </h2>
 
             {/* PayPal button placeholder */}
@@ -76,10 +76,10 @@ const CheckoutGrowthP = ({ userId }:{userId : string | undefined}) => {
                     userId && userId !== ''
                     ?
                     <div>
-                        <PayPalSubscriptionButton planId='P-51J84418L8135771CM75ZVIQ' onSuccess={handleSuccess} />
+                        <PayPalSubscriptionButton planId='P-33L59819EV611260PNAHE57I' onSuccess={handleSuccess} />
                     </div>
                     : 
-                    <Link href={'/login'}>Login First id:{userId}</Link>
+                    <Link className='text-purple-700 font-semibold' href={'/login'}>Login First to Subscribe</Link>
                 }
             </div>
         </div>

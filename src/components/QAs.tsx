@@ -7,20 +7,20 @@ type QA = {
 
 const faqs: QA[] = [
   {
-    question: "What is SEOWISE?",
-    answer: `SEOWISE is the ultimate AI writing tool for SEO. It helps you generate high-quality, long-form, SEO-rich blog posts while keeping a natural, human tone. 
-Beyond writing, SEOWISE includes in-depth SEO research and AI-generated visuals to make your content fully optimized. It’s a complete solution for creating engaging, high-ranking content with ease.`
+    question: "What is Turbo Blog?",
+    answer: `Turbo Blog is the ultimate AI writing tool for SEO. It helps you generate high-quality, long-form, SEO-rich blog posts while keeping a natural, human tone. 
+Beyond writing, Turbo Blog includes in-depth SEO research and AI-generated visuals to make your content fully optimized. It’s a complete solution for creating engaging, high-ranking content with ease.`
   },
   {
-    question: "How does SEOWISE differ from other AI writing tools?",
-    answer: `SEOWISE is built specifically for long-form SEO content. Unlike generic AI tools, it handles everything from research to writing and optimization. 
+    question: "How does Turbo Blog differ from other AI writing tools?",
+    answer: `Turbo Blog is built specifically for long-form SEO content. Unlike generic AI tools, it handles everything from research to writing and optimization. 
 With its unique AI Article Workflow, you can easily generate 3000+ word articles that are authentic, brand-consistent, and SEO-optimized. 
-It’s also far more cost-effective — while other platforms may charge $30 per article, SEOWISE offers a free trial with no upfront cost.
-Future updates will integrate project management and team collaboration features, making SEOWISE an essential tool for scaling your SEO strategy.`
+It’s also far more cost-effective — while other platforms may charge $30 per article, Turbo Blog offers a free trial with no upfront cost.
+Future updates will integrate project management and team collaboration features, making Turbo Blog an essential tool for scaling your SEO strategy.`
   },
   {
-    question: "How does SEOWISE use my data?",
-    answer: `SEOWISE takes your privacy seriously. Your data is never sold or used for training purposes. 
+    question: "How does Turbo Blog use my data?",
+    answer: `Turbo Blog takes your privacy seriously. Your data is never sold or used for training purposes. 
 Visit our security policy to learn more about how we protect your information. You can create and manage content confidently, knowing your data stays private and secure.`
   }
 ];

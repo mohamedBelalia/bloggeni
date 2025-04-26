@@ -16,26 +16,26 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "BlogGenius - AI-Powered Blog Generation Platform",
+  title: "Turbo Blog - AI-Powered Blog Generation Platform",
   description: "Create professional, SEO-optimized blog posts in minutes with our AI-powered blog generation platform. Perfect for content creators, marketers, and businesses.",
   keywords: "blog generator, AI content creation, content marketing, SEO writing, blog writing tool",
-  authors: [{ name: "BlogGenius Team" }],
-  creator: "BlogGenius",
-  publisher: "BlogGenius",
-  metadataBase: new URL("https://bloggenius.com"),
+  authors: [{ name: "Turbo Blog Team" }],
+  creator: "Turbo Blog",
+  publisher: "Turbo Blog",
+  metadataBase: new URL("https://turboblog.vercel.app"),
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://bloggenius.com",
-    title: "BlogGenius - AI-Powered Blog Generation Platform",
+    url: "https://turboblog.vercel.app",
+    title: "Turbo Blog - AI-Powered Blog Generation Platform",
     description: "Create professional, SEO-optimized blog posts in minutes with our AI-powered blog generation platform.",
-    siteName: "BlogGenius",
+    siteName: "Turbo Blog",
   },
   twitter: {
     card: "summary_large_image",
-    title: "BlogGenius - AI-Powered Blog Generation Platform",
+    title: "Turbo Blog - AI-Powered Blog Generation Platform",
     description: "Create professional, SEO-optimized blog posts in minutes with our AI-powered blog generation platform.",
-    creator: "@bloggenius",
+    creator: "@Turbo Blog",
   },
 };
 
@@ -46,9 +46,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <Script src="https://app.lemonsqueezy.com/js/lemon.js" strategy="afterInteractive" />
-      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

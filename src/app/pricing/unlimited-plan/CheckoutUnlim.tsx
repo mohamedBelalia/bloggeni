@@ -2,12 +2,12 @@
 
 
 import PayPalSubscriptionButton from '@/components/PayPalSubscriptionButton';
-import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import React from 'react'
 
 const planTitle = 'unlimited';
-const planId = 'P-2H438621YK1669144M752WKI';
+const planId = 'P-2C6695118V582343YNAHFA4Y';
 
 const CheckoutUnlim = ({ userId }:{userId : string | undefined}) => {
 
@@ -78,10 +78,10 @@ const CheckoutUnlim = ({ userId }:{userId : string | undefined}) => {
                     ?
                     <div>
                         {userId}
-                        <PayPalSubscriptionButton planId='P-2H438621YK1669144M752WKI' onSuccess={handleSuccess} />
+                        <PayPalSubscriptionButton planId='P-2C6695118V582343YNAHFA4Y' onSuccess={handleSuccess} />
                     </div>
                     : 
-                    <Button>Login First id:{userId}</Button>
+                    <Link className='text-purple-700 font-semibold' href={'/login'}>Login First to Subscribe</Link>
                 }
             </div>
         </div>

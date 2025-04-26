@@ -1,73 +1,163 @@
-import React from "react";
+'use client';
 
-const TermsAndConditionsPage = () => {
+import { Shield, CreditCard, Clock, AlertCircle, CheckCircle2 } from 'lucide-react';
+
+export default function TermsAndConditionsPage() {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12 text-gray-800">
-      <h1 className="text-4xl font-bold mb-8 text-center">Terms and Conditions</h1>
+    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+        {/* Header Section */}
+        <div className="text-center mb-12">
+          <h1 className="text-4xl sm:text-5xl font-bold text-[#652293] mb-4">
+            Terms and Conditions
+          </h1>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Please read these terms carefully before using our service. By using our service, you agree to these terms.
+          </p>
+        </div>
 
-      <section className="mb-10">
-        <h2 className="text-2xl font-semibold mb-4">1. Introduction</h2>
-        <p className="text-base leading-relaxed">
-          Welcome to our AI-powered blog post generator platform. By using our services, you agree to be bound by these terms and conditions. Please read them carefully.
-        </p>
-      </section>
+        <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8">
+          {/* Subscription Terms */}
+          <section className="mb-10">
+            <div className="flex items-center gap-3 mb-4">
+              <CreditCard className="w-6 h-6 text-[#652293]" />
+              <h2 className="text-2xl font-semibold text-gray-900">Subscription Terms</h2>
+            </div>
+            <div className="space-y-4">
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" />
+                <div>
+                  <h3 className="font-medium text-gray-900">Payment Processing</h3>
+                  <p className="text-gray-600">
+                    All payments are processed securely through PayPal. We do not store your credit card information.
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" />
+                <div>
+                  <h3 className="font-medium text-gray-900">Billing Cycle</h3>
+                  <p className="text-gray-600">
+                    Subscriptions are billed on a monthly basis. Your subscription will automatically renew unless cancelled.
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" />
+                <div>
+                  <h3 className="font-medium text-gray-900">Cancellation Policy</h3>
+                  <p className="text-gray-600">
+                    You can cancel your subscription at any time through your PayPal account or by contacting our support team.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
 
-      <section className="mb-10">
-        <h2 className="text-2xl font-semibold mb-4">2. Use of Service</h2>
-        <p className="text-base leading-relaxed">
-          Our platform allows you to generate, store, and publish SEO-optimized blog content using AI. You are responsible for any content generated or published using your account. We reserve the right to suspend access if usage violates any laws or our policies.
-        </p>
-      </section>
+          {/* Service Usage */}
+          <section className="mb-10">
+            <div className="flex items-center gap-3 mb-4">
+              <Shield className="w-6 h-6 text-[#652293]" />
+              <h2 className="text-2xl font-semibold text-gray-900">Service Usage</h2>
+            </div>
+            <div className="space-y-4">
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" />
+                <div>
+                  <h3 className="font-medium text-gray-900">Content Ownership</h3>
+                  <p className="text-gray-600">
+                    You retain all rights to the content you generate using our service. We do not claim ownership of your content.
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" />
+                <div>
+                  <h3 className="font-medium text-gray-900">Usage Limits</h3>
+                  <p className="text-gray-600">
+                    Your subscription plan determines the number of blog posts you can generate per month. Exceeding these limits may require an upgrade.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
 
-      <section className="mb-10">
-        <h2 className="text-2xl font-semibold mb-4">3. User Accounts</h2>
-        <p className="text-base leading-relaxed">
-          To access our services, you must register an account. You are responsible for maintaining the confidentiality of your login credentials and for all activities under your account.
-        </p>
-      </section>
+          {/* Privacy and Security */}
+          <section className="mb-10">
+            <div className="flex items-center gap-3 mb-4">
+              <Shield className="w-6 h-6 text-[#652293]" />
+              <h2 className="text-2xl font-semibold text-gray-900">Privacy and Security</h2>
+            </div>
+            <div className="space-y-4">
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" />
+                <div>
+                  <h3 className="font-medium text-gray-900">Data Protection</h3>
+                  <p className="text-gray-600">
+                    We implement industry-standard security measures to protect your data. All transactions are encrypted using SSL technology.
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" />
+                <div>
+                  <h3 className="font-medium text-gray-900">Information Collection</h3>
+                  <p className="text-gray-600">
+                    We collect only the information necessary to provide our services and process your payments securely.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
 
-      <section className="mb-10">
-        <h2 className="text-2xl font-semibold mb-4">4. Payment Terms</h2>
-        <p className="text-base leading-relaxed mb-2">
-          Our services are provided on a subscription basis. Payments are processed securely through Paddle. By subscribing, you authorize us (via Paddle) to charge your payment method on a recurring monthly basis.
-        </p>
-        <ul className="list-disc pl-6 space-y-1">
-          <li>All prices are listed in USD and may be subject to taxes depending on your location.</li>
-          <li>You can cancel your subscription at any time through your account dashboard or by contacting support.</li>
-          <li>No refunds are provided for partial months or unused time unless required by law.</li>
-          <li>If payment fails, access to premium features may be suspended until the issue is resolved.</li>
-        </ul>
-      </section>
+          {/* Important Notices */}
+          <section className="mb-10">
+            <div className="flex items-center gap-3 mb-4">
+              <AlertCircle className="w-6 h-6 text-[#652293]" />
+              <h2 className="text-2xl font-semibold text-gray-900">Important Notices</h2>
+            </div>
+            <div className="space-y-4">
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" />
+                <div>
+                  <h3 className="font-medium text-gray-900">Refund Policy</h3>
+                  <p className="text-gray-600">
+                    Refunds are handled according to PayPal&apos;s policies. Please contact our support team for assistance with refund requests.
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" />
+                <div>
+                  <h3 className="font-medium text-gray-900">Service Availability</h3>
+                  <p className="text-gray-600">
+                    We strive to maintain 99.9% uptime. Scheduled maintenance will be announced in advance.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
 
-      <section className="mb-10">
-        <h2 className="text-2xl font-semibold mb-4">5. Intellectual Property</h2>
-        <p className="text-base leading-relaxed">
-          All content generated through the platform belongs to you. However, the underlying AI system and platform architecture are owned by us. You agree not to reverse-engineer or replicate the service.
-        </p>
-      </section>
+          {/* Contact Information */}
+          <section>
+            <div className="flex items-center gap-3 mb-4">
+              <Clock className="w-6 h-6 text-[#652293]" />
+              <h2 className="text-2xl font-semibold text-gray-900">Contact Us</h2>
+            </div>
+            <p className="text-gray-600">
+              If you have any questions about these terms, please contact us at{' '}
+              <a href="mailto:mohamedbelalia.dev@gmail.com" className="text-[#652293] hover:underline">
+                mohamedbelalia.dev@gmail.com
+              </a>
+            </p>
+          </section>
+        </div>
 
-      <section className="mb-10">
-        <h2 className="text-2xl font-semibold mb-4">6. Termination</h2>
-        <p className="text-base leading-relaxed">
-          We reserve the right to suspend or terminate accounts that violate these terms or are involved in abusive or illegal activity.
-        </p>
-      </section>
-
-      <section className="mb-10">
-        <h2 className="text-2xl font-semibold mb-4">7. Modifications</h2>
-        <p className="text-base leading-relaxed">
-          We may update these terms from time to time. Continued use of the platform after changes constitutes your acceptance of the revised terms.
-        </p>
-      </section>
-
-      <section className="mb-10">
-        <h2 className="text-2xl font-semibold mb-4">8. Contact</h2>
-        <p className="text-base leading-relaxed">
-          For any questions regarding these Terms and Conditions, please contact us at: <a href="mailto:mohamedbelalia.dev@gmail.com" className="text-blue-600 underline">mohamedbelalia.dev@gmail.com</a>.
-        </p>
-      </section>
+        {/* Last Updated */}
+        <div className="mt-8 text-center text-sm text-gray-500">
+          Last updated: {new Date().toLocaleDateString()}
+        </div>
+      </div>
     </div>
   );
-};
-
-export default TermsAndConditionsPage;
+}

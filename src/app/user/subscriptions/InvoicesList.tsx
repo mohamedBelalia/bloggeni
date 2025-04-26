@@ -25,12 +25,12 @@ const statusColor = {
 };
 
 const planDetails = {
-  'P-51J84418L8135771CM75ZVIQ': {
+  'P-33L59819EV611260PNAHE57I': {
     name: 'Growth Plan',
     price: '$19/mo',
     features: ['30 blog posts/month', 'Advanced SEO', 'Custom Tone', 'HTML Download'],
   },
-  'P-2H438621YK1669144M752WKI': {
+  'P-2C6695118V582343YNAHFA4Y': {
     name: 'Unlimited Plan',
     price: '$49/mo',
     features: ['Unlimited posts', 'All Growth features', 'WordPress Integration'],

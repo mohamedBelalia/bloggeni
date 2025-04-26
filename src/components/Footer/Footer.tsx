@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
-import { Mail, Phone, Linkedin, Github, Twitter, Facebook } from 'lucide-react';
+import { Mail, Phone, Linkedin, Github, Twitter, Facebook, Globe } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
@@ -9,29 +9,44 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <h3 className="text-xl font-bold text-white">BlogGenius</h3>
+            <h3 className="text-xl font-bold text-white">Turbo Blog</h3>
             <p className="text-gray-400">
               AI-powered blog generation platform that helps you create high-quality, SEO-optimized content in minutes.
             </p>
             <div className="flex space-x-4">
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+              <a 
+                href="https://www.linkedin.com/in/mohamed-belalia-0b886a229/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-gray-400 hover:text-white transition-colors"
+                aria-label="LinkedIn"
+              >
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+              <a 
+                href="https://github.com/mohamedbelalia" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-gray-400 hover:text-white transition-colors"
+                aria-label="GitHub"
+              >
                 <Github className="w-5 h-5" />
+              </a>
+              <a 
+                href="https://www.belalia.info" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-gray-400 hover:text-white transition-colors"
+                aria-label="Portfolio"
+              >
+                <Globe className="w-5 h-5" />
               </a>
             </div>
           </div>
 
           {/* Product */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Product</h3>
+            <h3 className="text-lg font-semibold mb-4 text-white">Product</h3>
             <ul className="space-y-2">
               <li>
                 <Link href="/blog-generator" className="text-gray-400 hover:text-white transition-colors">
@@ -44,40 +59,8 @@ const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/features" className="text-gray-400 hover:text-white transition-colors">
-                  Features
-                </Link>
-              </li>
-              <li>
-                <Link href="/integrations" className="text-gray-400 hover:text-white transition-colors">
-                  Integrations
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Resources */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Resources</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/blog" className="text-gray-400 hover:text-white transition-colors">
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link href="/documentation" className="text-gray-400 hover:text-white transition-colors">
-                  Documentation
-                </Link>
-              </li>
-              <li>
-                <Link href="/guides" className="text-gray-400 hover:text-white transition-colors">
-                  Guides
-                </Link>
-              </li>
-              <li>
-                <Link href="/api" className="text-gray-400 hover:text-white transition-colors">
-                  API
+                <Link href="/feedback" className="text-gray-400 hover:text-white transition-colors">
+                  Feedback
                 </Link>
               </li>
             </ul>
@@ -85,16 +68,11 @@ const Footer: React.FC = () => {
 
           {/* Company */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Company</h3>
+            <h3 className="text-lg font-semibold mb-4 text-white">Company</h3>
             <ul className="space-y-2">
               <li>
                 <Link href="/about-us" className="text-gray-400 hover:text-white transition-colors">
                   About Us
-                </Link>
-              </li>
-              <li>
-                <Link href="/careers" className="text-gray-400 hover:text-white transition-colors">
-                  Careers
                 </Link>
               </li>
               <li>
@@ -103,30 +81,50 @@ const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/privacy" className="text-gray-400 hover:text-white transition-colors">
-                  Privacy Policy
+                <Link href="/terms-and-conditions" className="text-gray-400 hover:text-white transition-colors">
+                  Terms & Conditions
                 </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact Info */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4 text-white">Contact</h3>
+            <ul className="space-y-3">
+              <li>
+                <a 
+                  href="mailto:mohamedbelalia.dev@gmail.com" 
+                  className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+                >
+                  <Mail className="w-5 h-5" />
+                  <span>mohamedbelalia.dev@gmail.com</span>
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="tel:+212678993059" 
+                  className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+                >
+                  <Phone className="w-5 h-5" />
+                  <span>+212 678-993059</span>
+                </a>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Contact Info */}
+        {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-gray-800">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex flex-col md:flex-row gap-4 text-gray-400">
-              <a href="mailto:support@bloggenius.com" className="flex items-center gap-2 hover:text-white transition-colors">
-                <Mail className="w-4 h-4" />
-                <span>support@bloggenius.com</span>
-              </a>
-              <a href="tel:+1234567890" className="flex items-center gap-2 hover:text-white transition-colors">
-                <Phone className="w-4 h-4" />
-                <span>+1 (234) 567-890</span>
-              </a>
-            </div>
-            <p className="text-gray-400 mt-4 md:mt-0">
-              © {new Date().getFullYear()} BlogGenius. All rights reserved.
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-gray-400 text-sm">
+              © {new Date().getFullYear()} Turbo Blog. All rights reserved.
             </p>
+            <div className="flex items-center gap-4 text-sm">
+              <Link href="/terms-and-conditions" className="text-gray-400 hover:text-white transition-colors">
+                Terms of Service
+              </Link>
+            </div>
           </div>
         </div>
       </div>

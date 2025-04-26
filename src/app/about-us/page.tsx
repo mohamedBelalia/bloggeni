@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Mail, Linkedin, Github } from 'lucide-react';
+import Image from "next/image";
 
 export default function AboutPage() {
   return (
@@ -9,7 +10,7 @@ export default function AboutPage() {
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-4 py-20 text-center">
         <h1 className="text-4xl md:text-6xl font-bold mb-6">
-          <span className="gradient-text">About BlogGenius</span>
+          <span className="gradient-text">About Turbo Blog</span>
         </h1>
         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
           Empowering content creators with AI-powered blog generation. 
@@ -24,9 +25,10 @@ export default function AboutPage() {
             <div className="md:w-1/3">
               <div className="w-48 h-48 mx-auto md:mx-0 rounded-full bg-gray-100 overflow-hidden">
                 {/* Replace with your actual image */}
-                <div className="w-full h-full bg-gray-200 flex items-center justify-center">
+                <Image src="/mohamed-belalia.webp" alt="Creator Image" width={192} height={192} />
+                {/* <div className="w-full h-full bg-gray-200 flex items-center justify-center">
                   <span className="text-gray-400">Creator Image</span>
-                </div>
+                </div> */}
               </div>
             </div>
             <div className="md:w-2/3">
@@ -44,7 +46,7 @@ export default function AboutPage() {
                 I understand how overwhelming it can be to manage content, SEO, and everything else when you&apos;re trying to run a business or blog.
               </p>
               <p className="text-gray-700 mb-6">
-                That&apos;s why I created BlogGenius - to help you generate high-quality blog posts quickly and efficiently. 
+                That&apos;s why I created Turbo Blog - to help you generate high-quality blog posts quickly and efficiently. 
                 Whether you&apos;re a business owner, freelancer, or someone who doesn&apos;t have time to write every day, 
                 this tool is designed to make your life easier.
               </p>
@@ -81,9 +83,9 @@ export default function AboutPage() {
       {/* Product Philosophy Section */}
       <section className="max-w-4xl mx-auto px-4 py-12">
         <div className="bg-white rounded-2xl shadow-sm p-8 md:p-12">
-          <h2 className="text-2xl font-semibold mb-6">Why I Created BlogGenius</h2>
+          <h2 className="text-2xl font-semibold mb-6">Why I Created Turbo Blog</h2>
           <p className="text-gray-700 mb-6">
-            I built BlogGenius because I saw a gap in the market. While there are many tools claiming to make content creation easier, 
+            I built Turbo Blog because I saw a gap in the market. While there are many tools claiming to make content creation easier, 
             most are either too complex or don&apos;t get the tone right. Here&apos;s what I aimed for with this tool:
           </p>
           <div className="grid md:grid-cols-2 gap-6">
@@ -144,7 +146,7 @@ export default function AboutPage() {
         <div className="bg-gradient-to-r from-primary to-primary/80 rounded-2xl p-8 md:p-12 text-center text-white">
           <h2 className="text-2xl font-semibold mb-4">Let&apos;s Connect</h2>
           <p className="text-white/90 mb-8 max-w-2xl mx-auto">
-            Whether you&apos;re using BlogGenius or just want to chat about how AI is changing the content game, 
+            Whether you&apos;re using Turbo Blog or just want to chat about how AI is changing the content game, 
             I&apos;d love to hear from you. If you have any questions, feedback, or just want to connect, 
             don&apos;t hesitate to reach out.
           </p>

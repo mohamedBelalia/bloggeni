@@ -16,7 +16,7 @@ export async function POST(req: NextRequest) {
     `${process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID}:${process.env.NEXT_PAYPAL_SECRET}`
   ).toString('base64');
 
-  const tokenRes = await fetch(`https://api-m.sandbox.paypal.com/v1/oauth2/token`, {
+  const tokenRes = await fetch(`https://api-m.paypal.com/v1/oauth2/token`, {
     method: 'POST',
     headers: {
       Authorization: `Basic ${auth}`,
@@ -30,7 +30,7 @@ export async function POST(req: NextRequest) {
 
   // 2. Fetch subscription details from PayPal
   const subRes = await fetch(
-    `https://api-m.sandbox.paypal.com/v1/billing/subscriptions/${subscriptionId}`,
+    `https://api-m.paypal.com/v1/billing/subscriptions/${subscriptionId}`,
     {
       method: 'GET',
       headers: {
