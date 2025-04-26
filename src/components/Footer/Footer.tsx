@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
-import { Mail, Phone, Linkedin, Github, Twitter, Facebook, Globe } from 'lucide-react';
+import { Mail, Phone, Linkedin, Github , Globe } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
