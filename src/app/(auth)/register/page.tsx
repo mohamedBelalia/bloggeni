@@ -69,7 +69,7 @@ export default function Register() {
   };
 
   return (
-    <main className="flex flex-col justify-center items-center min-h-screen md:w-full w-[380px]">
+    <main className="flex flex-col justify-center items-center md:min-h-screen h-fit md:py-0 py-12 w-full">
       <div className="mb-9">
         <h2 className="text-[#652293] text-center text-3xl font-semibold">Create Your <span className="bg-[#652293] text-white px-2 rounded-md">SEO WISE</span> Account</h2>
       </div>

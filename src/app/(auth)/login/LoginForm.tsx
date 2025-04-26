@@ -69,7 +69,7 @@ export default function LoginForm() {
   // const email = form.getValues("email");
 
   return (
-    <main className="flex flex-col justify-center items-center min-h-screen">
+    <main className="flex flex-col justify-center items-center h-full">
 
       <div className="mb-9">
         <h2 className="text-[#652293] text-center text-3xl font-semibold">

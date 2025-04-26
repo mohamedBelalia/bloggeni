@@ -9,7 +9,7 @@ export default async function LoginPage() {
     redirect("/blog-generator");
   }
 
-  return <div className="w-full mx-auto h-screen flex justify-center items-center">
+  return <div className="w-full mx-auto md:h-screen h-fit md:py-0 py-12 flex justify-center items-center">
     <LoginForm />
   </div>;
 }
