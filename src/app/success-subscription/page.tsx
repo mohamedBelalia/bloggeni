@@ -26,7 +26,7 @@ export default function SuccessSubscription() {
           {/* Next Steps Card */}
           <div className="bg-white rounded-lg shadow-sm p-4 sm:p-6 mb-6 sm:mb-8">
             <h2 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-gray-900">
-              What's Next?
+              What&apos;s Next?
             </h2>
             <ul className="space-y-2 sm:space-y-3 text-left">
               <li className="flex items-start gap-2 sm:gap-3">
@@ -39,7 +39,7 @@ export default function SuccessSubscription() {
               </li>
               <li className="flex items-start gap-2 sm:gap-3">
                 <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 mt-1 flex-shrink-0" />
-                <span className="text-sm sm:text-base text-gray-600">You'll receive a confirmation email shortly</span>
+                <span className="text-sm sm:text-base text-gray-600">You&apos;ll receive a confirmation email shortly</span>
               </li>
             </ul>
           </div>

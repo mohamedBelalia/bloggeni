@@ -2,7 +2,7 @@ import TimeLine from '@/components/comp-534';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react'
-import { MdOutlineGeneratingTokens } from 'react-icons/md';
+
 
 const ThreeSteps = () => {
 

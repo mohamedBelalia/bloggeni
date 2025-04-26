@@ -31,7 +31,7 @@ export default function AboutPage() {
             </div>
             <div className="md:w-2/3">
               <h2 className="text-2xl font-semibold mb-4">
-                Hey, I'm <Link 
+                Hey, I&apos;m <Link 
                   className="text-primary underline" 
                   target="_blank" 
                   href="https://www.belalia.info/"

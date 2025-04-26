@@ -143,7 +143,7 @@ export default function Home() {
             <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
               <FiveStars />
               <p className="text-gray-700 mt-4">
-              &quot;Best AI blog writer I've ever used! The quality of content is exceptional.&quot;
+              &quot;Best AI blog writer I&apos;ve ever used! The quality of content is exceptional.&quot;
               </p>
               <div className="mt-4 flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-gray-200"></div>
