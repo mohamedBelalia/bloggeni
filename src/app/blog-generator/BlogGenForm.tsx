@@ -86,7 +86,7 @@ export default function BlogGenForm({ getBlogData, generateBlogFn, getUserTitle,
 
       <div className="space-y-1">
         <label className="block text-sm font-medium text-gray-700">
-          Main Keywords
+          Main Keywords<span className="text-red-500 ml-1">*</span>
         </label>
         <Input
           value={formData.keywords}
@@ -99,7 +99,7 @@ export default function BlogGenForm({ getBlogData, generateBlogFn, getUserTitle,
 
       <div className="space-y-1">
         <label className="block text-sm font-medium text-gray-700">
-          Language
+          Language<span className="text-red-500 ml-1">*</span>
         </label>
         <Select
           onValueChange={(value) => handleChange("language", value)}
@@ -118,7 +118,7 @@ export default function BlogGenForm({ getBlogData, generateBlogFn, getUserTitle,
 
       <div className="space-y-1">
         <label className="block text-sm font-medium text-gray-700">
-          Article Size
+          Article Size<span className="text-red-500 ml-1">*</span>
         </label>
         <Select
           onValueChange={(value) => handleChange("size", value)}
@@ -128,16 +128,16 @@ export default function BlogGenForm({ getBlogData, generateBlogFn, getUserTitle,
             <SelectValue placeholder="Select The Article's Size" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="short">Short (300-500 words)</SelectItem>
-            <SelectItem value="medium">Medium (500-1000 words)</SelectItem>
-            <SelectItem value="long">Long (1000+ words)</SelectItem>
+            <SelectItem value="(700-1000 words)">Short (700-1000 words)</SelectItem>
+            <SelectItem value="(1000-1500 words)">Medium (1000-1500 words)</SelectItem>
+            <SelectItem value="(2000+ words)">Long (2000+ words)</SelectItem>
           </SelectContent>
         </Select>
       </div>
 
       <div className="space-y-1">
         <label className="block text-sm font-medium text-gray-700">
-          Tone of Voice
+          Tone of Voice<span className="text-red-500 ml-1">*</span>
         </label>
         <Select
           onValueChange={(value) => handleChange("tone", value)}
@@ -156,7 +156,7 @@ export default function BlogGenForm({ getBlogData, generateBlogFn, getUserTitle,
 
       <div className="space-y-1">
         <label className="block text-sm font-medium text-gray-700">
-          Additional Details
+          Additional Details<span className="text-red-500 ml-1">*</span>
         </label>
         <Textarea
           name="details"

@@ -38,8 +38,8 @@ export default function SaveBlog({ content, title }: SaveBlogProps) {
 
     } catch (error) {
       console.log(error);
-      setError("Failed to save blog")
-      alert("Error saving blog");
+      setError(`There is an error while saving your blog : ${error}`)
+      alert(error);
     } finally {
       setLoading(false);
     }
