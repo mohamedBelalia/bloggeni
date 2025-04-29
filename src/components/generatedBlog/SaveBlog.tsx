@@ -24,7 +24,7 @@ export default function SaveBlog({ content, title }: SaveBlogProps) {
       setLoading(true)
       setError(null)
       
-      const response = await fetch("/api/saveblog", {
+      const response = await fetch("/api/saveBlog", {
         method: "POST",
         headers: { 
           "Content-Type": "application/json",
