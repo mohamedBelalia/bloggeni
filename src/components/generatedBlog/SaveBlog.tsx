@@ -40,6 +40,8 @@ export default function SaveBlog({ content, title }: SaveBlogProps) {
       }
 
       const responseData = await response.json();
+      console.log(responseData);
+      
       setSuccess(true)
 
     } catch (error) {
