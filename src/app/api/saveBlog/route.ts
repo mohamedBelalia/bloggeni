@@ -1,6 +1,28 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/utils/supabase/server";
 
+// Add CORS headers to all responses
+const corsHeaders = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'POST, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+};
+
+// Handle OPTIONS requests for CORS preflight
+export async function OPTIONS() {
+  return NextResponse.json({}, { headers: corsHeaders });
+}
+
+// Add config to ensure proper handling in production
+export const config = {
+  api: {
+    bodyParser: {
+      sizeLimit: '1mb',
+    },
+  },
+  runtime: 'edge',
+};
+
 export async function POST(req: NextRequest) {
   try {
     // Log the request URL and headers for debugging
@@ -17,7 +39,7 @@ export async function POST(req: NextRequest) {
       console.error('Error parsing request body:', e);
       return NextResponse.json(
         { error: "Invalid JSON in request body" },
-        { status: 400 }
+        { status: 400, headers: corsHeaders }
       );
     }
 
@@ -26,7 +48,7 @@ export async function POST(req: NextRequest) {
     if (!title || !content) {
       return NextResponse.json(
         { error: "Title and content are required" },
-        { status: 400 }
+        { status: 400, headers: corsHeaders }
       );
     }
 
@@ -40,14 +62,14 @@ export async function POST(req: NextRequest) {
       console.error('Auth error:', authError);
       return NextResponse.json(
         { error: "Authentication error" },
-        { status: 401 }
+        { status: 401, headers: corsHeaders }
       );
     }
 
     if (!user) {
       return NextResponse.json(
         { error: "Unauthorized" },
-        { status: 401 }
+        { status: 401, headers: corsHeaders }
       );
     }
 
@@ -67,17 +89,13 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json(
       { message: "Blog saved successfully", data },
-      { status: 200, headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'POST, OPTIONS',
-        'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-      } }
+      { status: 200, headers: corsHeaders }
     );
   } catch (error) {
     console.error('Server error:', error);
     return NextResponse.json(
       { error: (error as Error).message },
-      { status: 500 }
+      { status: 500, headers: corsHeaders }
     );
   }
 }

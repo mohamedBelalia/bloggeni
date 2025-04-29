@@ -22,24 +22,29 @@ export default function SaveBlog({ content, title }: SaveBlogProps) {
   const handleSave = async () => {
     try {
       setLoading(true)
-      const res = await fetch("/api/saveblog", {
+      setError(null)
+      
+      const response = await fetch("/api/saveblog", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { 
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
         body: JSON.stringify({ title: mainTitle, content }),
+        credentials: "include"
       });
 
-      console.log(res);
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({ error: "Failed to parse error response" }));
+        throw new Error(errorData.error || `HTTP error! status: ${response.status}`);
+      }
 
-
-      const responseData = await res.json();
-      if (!res.ok) throw new Error(responseData.error || "Failed to save blog");
-
+      const responseData = await response.json();
       setSuccess(true)
 
     } catch (error) {
-      console.log(error);
-      setError(`There is an error while saving your blog : ${error}`)
-      alert(error);
+      console.error("Save blog error:", error);
+      setError(`There is an error while saving your blog: ${error instanceof Error ? error.message : String(error)}`);
     } finally {
       setLoading(false);
     }
@@ -58,7 +63,7 @@ export default function SaveBlog({ content, title }: SaveBlogProps) {
             !success
             ?
             <DialogHeader>
-              <DialogTitle>Save Your Generated Blog</DialogTitle>
+              <DialogTitle>Save Your Generated Blog 123</DialogTitle>
               <DialogDescription>
                 You can access your saved blog by going to: <br />
                 Account &#10148; Saved Blogs <br />
@@ -102,7 +107,6 @@ export default function SaveBlog({ content, title }: SaveBlogProps) {
                 : success == null ?
                   <Button className="mt-2 px-4 py-2 bg-[#652293] hover:bg-[#652293] text-white rounded cursor-pointer" onClick={handleSave} type="submit">Save It</Button>
                   : success == true && <div></div>
-              // <Button className="mt-2 px-4 py-2 bg-[#652293] hover:bg-[#652293] text-white rounded cursor-pointer" type="submit">Cancel</Button>
             }
           </DialogFooter>
         </DialogContent>
