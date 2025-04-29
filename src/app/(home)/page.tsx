@@ -60,7 +60,7 @@ export default function Home() {
           <div className="mt-6 flex items-center justify-center gap-4 text-sm text-gray-500">
             <div className="flex items-center gap-2">
               <CheckCircle className="w-4 h-4 text-green-500" />
-              <span>No credit card required</span>
+              <span>No credit card required 111</span>
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle className="w-4 h-4 text-green-500" />
