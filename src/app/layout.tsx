@@ -1,4 +1,3 @@
-
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -23,6 +22,9 @@ export const metadata: Metadata = {
   creator: "Turbo Blog",
   publisher: "Turbo Blog",
   metadataBase: new URL("https://turboblog.vercel.app"),
+  icons: {
+    icon: '/icon.png',
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
