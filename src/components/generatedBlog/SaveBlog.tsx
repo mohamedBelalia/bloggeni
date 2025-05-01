@@ -65,7 +65,7 @@ export default function SaveBlog({ content, title }: SaveBlogProps) {
             !success
             ?
             <DialogHeader>
-              <DialogTitle>Save Your Generated Blog 123</DialogTitle>
+              <DialogTitle>Save Your Generated Blog</DialogTitle>
               <DialogDescription>
                 You can access your saved blog by going to: <br />
                 Account &#10148; Saved Blogs <br />
