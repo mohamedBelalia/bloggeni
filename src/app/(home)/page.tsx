@@ -6,7 +6,7 @@ import { supabase } from "@/lib/supabase";
 import Link from "next/link";
 import Section4 from "./Section4";
 import { ArrowRight, CheckCircle, Shield, Zap } from "lucide-react";
-import { TbLetterA , TbLetterS , TbLetterE } from "react-icons/tb";
+import { TbLetterM , TbLetterE, TbLetterO } from "react-icons/tb";
 import { FaMoneyBillTransfer } from "react-icons/fa6";
 import { MdOutlineSupportAgent } from "react-icons/md";
 
@@ -125,10 +125,10 @@ export default function Home() {
               &quot;The ultimate AI tool for SEO-optimized blogging! It&apos;s transformed how we create content for our websites.&quot;
               </p>
               <div className="mt-4 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-gray-200 flex justify-center items-center"><TbLetterS /></div>
+                <div className="w-10 h-10 rounded-full bg-gray-200 flex justify-center items-center"><TbLetterO /></div>
                 <div>
-                  <p className="font-medium">Soufiane Bensediq</p>
-                  <p className="text-sm text-gray-500">Full Stack Web Developer</p>
+                  <p className="font-medium">Oliver Noah</p>
+                  <p className="text-sm text-gray-500">Blogger</p>
                 </div>
               </div>
             </div>
@@ -138,9 +138,9 @@ export default function Home() {
               &quot;My go-to AI for effortless content creation! Saves me hours every week.&quot;
               </p>
               <div className="mt-4 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-gray-200 flex justify-center items-center"><TbLetterA /></div>
+                <div className="w-10 h-10 rounded-full bg-gray-200 flex justify-center items-center"><TbLetterM /></div>
                 <div>
-                  <p className="font-medium">Abdoulah Allaoui</p>
+                  <p className="font-medium">Mateo</p>
                   <p className="text-sm text-gray-500">Copywriter</p>
                 </div>
               </div>

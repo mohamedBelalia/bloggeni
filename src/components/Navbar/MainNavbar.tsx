@@ -15,7 +15,7 @@ const MainNavbar = async () => {
         {/* Logo */}
         <div className="flex items-center">
           <Link href="/">
-            <Image src="/templogo.png" alt="Logo" width={200} height={200} className="object-contain" />
+            <Image src="/templogo.png" alt="Logo" width={100} height={100} className="object-contain mt-5" />
           </Link>
         </div>
 

@@ -2,6 +2,7 @@
 
 import {
     Cloud,
+    Lightbulb ,
     LogOut,
 } from "lucide-react"
 import { logout } from "./action";
@@ -29,6 +30,10 @@ export function ProfileActions({email} : {email : string}) {
                 <DropdownMenuLabel>My Account</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
+                <DropdownMenuItem>
+                        <Lightbulb />
+                        <Link href={"/blog-generator"}>Generate Blog</Link>
+                    </DropdownMenuItem>
                     <DropdownMenuItem>
                         <Cloud />
                         <Link href={"/saved-blogs"}>Saved Blogs</Link>
