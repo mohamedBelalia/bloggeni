@@ -67,11 +67,3 @@ public/                     # Static assets (images, icons)
 
 - Deploy on [Vercel](https://vercel.com/) or any platform supporting Next.js.
 - Make sure to set all required environment variables in your deployment settings.
-
-## License
-
-MIT
-
----
-
-Built by the Turbo Blog Team.

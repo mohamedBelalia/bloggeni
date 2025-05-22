@@ -64,7 +64,7 @@ const MDXEditor: React.FC<MDXEditorProps> = ({ mdxData, getGeneratedBlog }) => {
 
   return (
     <div className="w-full">
-      {/* Toolbar */}
+
       <div className="flex items-center gap-2 p-2 border-b border-gray-200 bg-gray-50 rounded-t-lg">
         <TooltipProvider>
           <div className="flex items-center gap-1">
