@@ -37,7 +37,7 @@ const SavedBlogs = () => {
                     </p>
                 </div>
 
-                {/* Content Section */}
+
                 {isLoading ? (
                     <div className="flex justify-center items-center py-20">
                         <div className="flex flex-col items-center gap-4">
@@ -47,12 +47,12 @@ const SavedBlogs = () => {
                     </div>
                 ) : (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {/* Blog Cards */}
+
                         {retrivedData.map((blog, key) => (
                             <BlogCard {...blog} key={key} />
                         ))}
                         
-                        {/* Generate New Blog Card */}
+
                         <div className="h-full">
                             <Link 
                                 href={'blog-generator'} 
@@ -70,7 +70,7 @@ const SavedBlogs = () => {
                     </div>
                 )}
 
-                {/* Empty State */}
+
                 {!isLoading && retrivedData.length === 0 && (
                     <div className="text-center py-20">
                         <div className="w-20 h-20 mx-auto mb-6 bg-gray-100 rounded-full flex items-center justify-center">

@@ -43,7 +43,7 @@ export default function LoginForm() {
 
   const handleSubmit = async (data: z.infer<typeof formSchema>) => {
     setServerError(null);
-    setIsLoading(true); // Set loading to true when submission starts
+    setIsLoading(true); 
 
     try {
       const response = await loginUser({
@@ -61,7 +61,7 @@ export default function LoginForm() {
       console.log(error);
       setServerError("An unexpected error occurred. Please try again.");
     } finally {
-      setIsLoading(false); // Set loading to false when submission ends
+      setIsLoading(false); 
     }
   };
 

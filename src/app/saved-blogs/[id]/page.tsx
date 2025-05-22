@@ -76,7 +76,7 @@ export default function BlogPage() {
                     </Link>
                 </div>
 
-                {/* Blog Header */}
+
                 <div className="bg-white rounded-2xl shadow-sm p-6 mb-8">
                     <div className="flex justify-between items-start">
                         <div>
@@ -98,7 +98,7 @@ export default function BlogPage() {
                     </div>
                 </div>
 
-                {/* Blog Content */}
+
                 <div className="bg-white rounded-2xl shadow-sm p-6">
                     <MDXEditor mdxData={generatedContent} getGeneratedBlog={setGeneratedContent} />
                 </div>

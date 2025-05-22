@@ -7,7 +7,6 @@ import Image from "next/image";
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
-      {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-4 py-20 text-center">
         <h1 className="text-4xl md:text-6xl font-bold mb-6">
           <span className="gradient-text">About Turbo Blog</span>
@@ -18,7 +17,6 @@ export default function AboutPage() {
         </p>
       </section>
 
-      {/* Creator Section */}
       <section className="max-w-4xl mx-auto px-4 py-12">
         <div className="bg-white rounded-2xl shadow-sm p-8 md:p-12">
           <div className="flex flex-col md:flex-row gap-8 items-start">
@@ -80,7 +78,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Product Philosophy Section */}
       <section className="max-w-4xl mx-auto px-4 py-12">
         <div className="bg-white rounded-2xl shadow-sm p-8 md:p-12">
           <h2 className="text-2xl font-semibold mb-6">Why I Created Turbo Blog</h2>
@@ -141,7 +138,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Call to Action Section */}
       <section className="max-w-4xl mx-auto px-4 py-12">
         <div className="bg-gradient-to-r from-primary to-primary/80 rounded-2xl p-8 md:p-12 text-center text-white">
           <h2 className="text-2xl font-semibold mb-4">Let&apos;s Connect</h2>

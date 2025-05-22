@@ -33,7 +33,6 @@ const SchemaGenerator = () => {
 
   const generateJsonLd = () => {
     if (selectedSchema) {
-      // Generate JSON-LD based on form data
       const jsonData = { '@context': 'https://schema.org', '@type': selectedSchema, ...formData };
       setJsonLd(JSON.stringify(jsonData, null, 2));
     }

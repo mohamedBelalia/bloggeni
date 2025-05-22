@@ -32,7 +32,7 @@ const formSchema = z.object({
 
 export default function ResetPassword() {
   const [serverError, setServerError] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState(false); // Add loading state
+  const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -45,7 +45,7 @@ export default function ResetPassword() {
 
   const handleSubmit = async (data: z.infer<typeof formSchema>) => {
     setServerError(null);
-    setIsLoading(true); // Set loading to true when submission starts
+    setIsLoading(true); 
 
     try {
       const response = await resetPasswordFunc({
@@ -57,14 +57,13 @@ export default function ResetPassword() {
         setServerError(response.message);
       } else {
         console.log("ddd: ", response);
-        // Redirect to the confirmation page
         router.push("/dashboard");
       }
     } catch (error) {
       console.log(error);
       setServerError("An unexpected error occurred. Please try again.");
     } finally {
-      setIsLoading(false); // Set loading to false when submission ends
+      setIsLoading(false);
     }
   };
 

@@ -45,7 +45,7 @@ export default function Register() {
 
   const handleSubmit = async (data: z.infer<typeof formSchema>) => {
     setServerError(null);
-    setIsLoading(true); // Set loading to true when submission starts
+    setIsLoading(true);
 
     try {
       const response = await registerUser({
@@ -57,7 +57,6 @@ export default function Register() {
       if (response.error) {
         setServerError(response.message);
       } else {
-        // Redirect to the confirmation page
         router.push("/register/confirmation");
       }
     } catch (error) {

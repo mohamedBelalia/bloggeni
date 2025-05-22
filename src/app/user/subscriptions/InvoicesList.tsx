@@ -64,7 +64,6 @@ export default function SubscriptionsPage({userId} : {userId : string | undefine
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 py-12">
       <div className="max-w-7xl mx-auto px-4">
-        {/* Header Section */}
         <div className="mb-12 text-center">
           <h1 className="text-4xl font-bold mb-4">
             <span className="gradient-text">Your Subscriptions</span>
@@ -74,7 +73,7 @@ export default function SubscriptionsPage({userId} : {userId : string | undefine
           </p>
         </div>
 
-        {/* Content Section */}
+
         {loading ? (
           <div className="flex justify-center items-center py-20">
             <div className="flex flex-col items-center gap-4">
@@ -114,7 +113,7 @@ export default function SubscriptionsPage({userId} : {userId : string | undefine
                 >
                   <CardContent className="p-8">
                     <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-6">
-                      {/* Plan Details */}
+
                       <div className="flex-1">
                         <div className="flex items-center justify-between mb-4">
                           <h2 className="text-2xl font-semibold text-gray-800">{plan.name}</h2>
@@ -142,7 +141,7 @@ export default function SubscriptionsPage({userId} : {userId : string | undefine
                         </div>
                       </div>
 
-                      {/* Plan Features */}
+
                       <div className="md:w-1/3">
                         <h3 className="font-semibold text-gray-800 mb-3">Plan Features</h3>
                         <ul className="space-y-2">

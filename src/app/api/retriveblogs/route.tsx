@@ -3,9 +3,8 @@ import { createClient } from "@/utils/supabase/server";
 
 export async function GET() {
   try {
-    const supabase = createClient(); // Get Supabase instance
+    const supabase = createClient();
 
-    // Get authenticated user
     const {
       data: { user },
     } = await supabase.auth.getUser();
@@ -14,7 +13,6 @@ export async function GET() {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    // Fetch blogs where user_id matches authenticated user
     const { data, error } = await supabase
       .from("savedblogs")
       .select("*")

@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
     <footer className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Company Info */}
+
           <div className="space-y-4">
             <h3 className="text-xl font-bold text-white">Turbo Blog</h3>
             <p className="text-gray-400">
@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Product */}
+
           <div>
             <h3 className="text-lg font-semibold mb-4 text-white">Product</h3>
             <ul className="space-y-2">
@@ -66,7 +66,7 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Company */}
+
           <div>
             <h3 className="text-lg font-semibold mb-4 text-white">Company</h3>
             <ul className="space-y-2">
@@ -88,7 +88,7 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Contact Info */}
+
           <div>
             <h3 className="text-lg font-semibold mb-4 text-white">Contact</h3>
             <ul className="space-y-3">
@@ -114,7 +114,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom Bar */}
+
         <div className="mt-12 pt-8 border-t border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-400 text-sm">

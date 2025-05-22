@@ -51,7 +51,7 @@ const Feedback = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 py-20">
       <div className="max-w-4xl mx-auto px-4">
-        {/* Header Section */}
+
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="gradient-text">Share Your Thoughts</span>
@@ -62,7 +62,7 @@ const Feedback = () => {
           </p>
         </div>
 
-        {/* Form Section */}
+
         <div className="bg-white rounded-2xl shadow-sm p-8 md:p-12">
           {success ? (
             <div className="text-center py-12">

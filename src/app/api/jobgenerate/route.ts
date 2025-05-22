@@ -1,4 +1,3 @@
-// app/api/generate/route.ts
 
 import { createClient } from '@supabase/supabase-js';
 

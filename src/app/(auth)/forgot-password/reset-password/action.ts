@@ -28,7 +28,6 @@ export const resetPasswordFunc = async ({
     };
   }
 
-  // supabase authentication from here
   const supabase = createClient();
 
   const { data, error } = await supabase.auth.updateUser({
@@ -44,7 +43,6 @@ export const resetPasswordFunc = async ({
     };
   }
 
-  // User successfully created
   return {
     success: true,
     message: "Password reset successful",

@@ -47,7 +47,7 @@ const JobForm = () => {
       const data = await res.json();
       console.log(data);
       
-      setJobId(data.jobId); // Store the job ID
+      setJobId(data.jobId);
       setLoading(false);
     } catch (err) {
       console.log(err);
@@ -71,7 +71,6 @@ const JobForm = () => {
   
     if (data.status === 'done') {
       console.log('Result is ready:', data.result);
-      // Show result in UI
     } else if (data.status === 'error') {
       console.error('Job failed');
     }

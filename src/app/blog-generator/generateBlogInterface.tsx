@@ -171,7 +171,6 @@ export default function BlogGeneratePage({ userId }: { userId: string }) {
 
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          {/* Form Section */}
           <div className="lg:col-span-4">
             <div className="bg-white rounded-lg shadow-sm p-6">
               <h2 className="text-xl font-semibold mb-6 gradient-text">Blog Settings</h2>
@@ -184,7 +183,7 @@ export default function BlogGeneratePage({ userId }: { userId: string }) {
             </div>
           </div>
 
-          {/* Preview Section */}
+
           <div className="lg:col-span-8">
             <div className="bg-white rounded-lg shadow-sm p-6">
               <h2 className="text-xl font-semibold mb-6 gradient-text">Blog Preview</h2>

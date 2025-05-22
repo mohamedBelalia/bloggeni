@@ -6,7 +6,7 @@ export default function TermsAndConditionsPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-        {/* Header Section */}
+
         <div className="text-center mb-12">
           <h1 className="text-4xl sm:text-5xl font-bold text-[#652293] mb-4">
             Terms and Conditions
@@ -17,7 +17,7 @@ export default function TermsAndConditionsPage() {
         </div>
 
         <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8">
-          {/* Subscription Terms */}
+          {/* Terms */}
           <section className="mb-10">
             <div className="flex items-center gap-3 mb-4">
               <CreditCard className="w-6 h-6 text-[#652293]" />
@@ -54,7 +54,7 @@ export default function TermsAndConditionsPage() {
             </div>
           </section>
 
-          {/* Service Usage */}
+
           <section className="mb-10">
             <div className="flex items-center gap-3 mb-4">
               <Shield className="w-6 h-6 text-[#652293]" />
@@ -110,7 +110,7 @@ export default function TermsAndConditionsPage() {
             </div>
           </section>
 
-          {/* Important Notices */}
+
           <section className="mb-10">
             <div className="flex items-center gap-3 mb-4">
               <AlertCircle className="w-6 h-6 text-[#652293]" />
@@ -138,7 +138,7 @@ export default function TermsAndConditionsPage() {
             </div>
           </section>
 
-          {/* Contact Information */}
+
           <section>
             <div className="flex items-center gap-3 mb-4">
               <Clock className="w-6 h-6 text-[#652293]" />
@@ -153,7 +153,7 @@ export default function TermsAndConditionsPage() {
           </section>
         </div>
 
-        {/* Last Updated */}
+
         <div className="mt-8 text-center text-sm text-gray-500">
           Last updated: {new Date().toLocaleDateString()}
         </div>

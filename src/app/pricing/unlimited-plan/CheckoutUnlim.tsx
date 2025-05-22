@@ -71,7 +71,7 @@ const CheckoutUnlim = ({ userId }:{userId : string | undefined}) => {
                 Secure payment via
             </h2>
 
-            {/* PayPal button placeholder */}
+
             <div id="paypal-button-container" className="mt-2">
                 {
                     userId && userId !== ''

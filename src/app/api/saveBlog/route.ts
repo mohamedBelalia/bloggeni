@@ -1,19 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/utils/supabase/server";
 
-// Add CORS headers to all responses
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'POST, OPTIONS',
   'Access-Control-Allow-Headers': 'Content-Type, Authorization',
 };
 
-// Handle OPTIONS requests for CORS preflight
 export async function OPTIONS() {
   return NextResponse.json({}, { headers: corsHeaders });
 }
 
-// Add config to ensure proper handling in production
 export const config = {
   api: {
     bodyParser: {
@@ -25,13 +22,11 @@ export const config = {
 
 export async function POST(req: NextRequest) {
   try {
-    // Log the request URL and headers for debugging
     console.log('Request URL:', req.url);
     console.log('Request Headers:', Object.fromEntries(req.headers.entries()));
 
     const supabase = createClient();
     
-    // Validate request body
     let body;
     try {
       body = await req.json();
@@ -52,7 +47,6 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Get authenticated user
     const {
       data: { user },
       error: authError,
@@ -73,7 +67,6 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Insert blog into Supabase
     const { data, error } = await supabase.from("savedblogs").insert([
       {
         user_id: user.id,

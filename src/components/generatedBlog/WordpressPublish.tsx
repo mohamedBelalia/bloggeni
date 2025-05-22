@@ -15,10 +15,6 @@ type WordpressPublishProps = {
     blogTitle: string;
 }
 
-// const baseWpUrl = "https://desiertotours.es";
-// const username = "elouazzani.m.a@gmail.com";
-// const appPassword = "uS6E 0IJK CAAw Xna5 rFPU Hozt";
-
 const WordpressPublish = ({ markdown, blogTitle }: WordpressPublishProps) => {
 
     const [postNeededInfo, setPostNeededInfo] = useState<{
@@ -198,6 +194,3 @@ const WordpressPublish = ({ markdown, blogTitle }: WordpressPublishProps) => {
 }
 
 export default WordpressPublish
-
-// pwd:simo123
-// user:belalia

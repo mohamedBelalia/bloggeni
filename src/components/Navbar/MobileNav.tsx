@@ -23,7 +23,7 @@ export default function MobileNav({ isAuthenticated }: MobileNavProps) {
     getUser();
   }, [supabase.auth]);
 
-  // Prevent body scroll when menu is open
+
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -37,7 +37,7 @@ export default function MobileNav({ isAuthenticated }: MobileNavProps) {
 
   return (
     <>
-      {/* Hamburger Button */}
+
       <div className="md:hidden">
         <button 
           onClick={() => setIsOpen(true)} 
@@ -48,7 +48,7 @@ export default function MobileNav({ isAuthenticated }: MobileNavProps) {
         </button>
       </div>
 
-      {/* Full-screen overlay menu */}
+
       <div 
         className={`fixed inset-0 z-50 bg-black/50 backdrop-blur-sm transition-opacity duration-300 ${
           isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
@@ -62,7 +62,7 @@ export default function MobileNav({ isAuthenticated }: MobileNavProps) {
           }`}
           onClick={(e) => e.stopPropagation()}
         >
-          {/* Header */}
+
           <div className="flex justify-between items-center p-4 border-b">
             <div className="flex items-center gap-2">
               {isAuthenticated && userEmail && (
@@ -83,7 +83,7 @@ export default function MobileNav({ isAuthenticated }: MobileNavProps) {
             </button>
           </div>
 
-          {/* Navigation Links */}
+
           <div className="p-4">
             <nav className="space-y-1">
               <Link
@@ -120,7 +120,7 @@ export default function MobileNav({ isAuthenticated }: MobileNavProps) {
               </Link>
             </nav>
 
-            {/* Authentication Links */}
+
             <div className="mt-6 pt-6 border-t">
               {isAuthenticated ? (
                 <>

@@ -53,7 +53,7 @@ export default function ForgotPassword() {
 
   const handleSubmit = async (data: z.infer<typeof formSchema>) => {
     setServerError(null);
-    setIsLoading(true); // Set loading to true when submission starts
+    setIsLoading(true);
 
     try {
       const response = await forgotPassword({
@@ -64,14 +64,13 @@ export default function ForgotPassword() {
         setServerError(response.message);
         // }
       } else {
-        // Redirect to the dashboard page
         router.push("/forgot-password/confirmation");
       }
     } catch (error) {
       console.log(error);
       setServerError("An unexpected error occurred. Please try again.");
     } finally {
-      setIsLoading(false); // Set loading to false when submission ends
+      setIsLoading(false); 
     }
   };
   return (

@@ -21,7 +21,6 @@ export const forgotPassword = async ({ email }: { email: string }) => {
     };
   }
 
-  // supabase authentication from here
   const supabase = createClient();
 
   const { error } = await supabase.auth.resetPasswordForEmail(email);
@@ -41,7 +40,6 @@ export const forgotPassword = async ({ email }: { email: string }) => {
     };
   }
 
-  // User successfully found
   return {
     success: true,
     message:

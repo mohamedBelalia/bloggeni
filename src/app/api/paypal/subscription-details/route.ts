@@ -1,4 +1,3 @@
-// /app/api/paypal/subscription-details/route.ts
 
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
@@ -11,7 +10,6 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Missing subscriptionId or userId' }, { status: 400 });
   }
 
-  // 1. Get access token from PayPal
   const auth = Buffer.from(
     `${process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID}:${process.env.NEXT_PAYPAL_SECRET}`
   ).toString('base64');
@@ -28,7 +26,6 @@ export async function POST(req: NextRequest) {
   const tokenData = await tokenRes.json();
   const accessToken = tokenData.access_token;
 
-  // 2. Fetch subscription details from PayPal
   const subRes = await fetch(
     `https://api-m.paypal.com/v1/billing/subscriptions/${subscriptionId}`,
     {
@@ -46,7 +43,6 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: subData }, { status: 400 });
   }
 
-  // 3. Save subscription to Supabase
   const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_SERVICE_ROLE_KEY!

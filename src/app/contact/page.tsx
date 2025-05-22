@@ -6,7 +6,7 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-        {/* Header Section */}
+
         <div className="text-center mb-12">
           <h1 className="text-4xl sm:text-5xl font-bold text-[#652293] mb-4">
             Get in Touch
@@ -16,9 +16,9 @@ export default function ContactPage() {
           </p>
         </div>
 
-        {/* Contact Information Cards */}
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Email Card */}
+
           <div className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
             <div className="flex items-center mb-4">
               <div className="bg-[#652293]/10 p-3 rounded-lg mr-4">
@@ -35,7 +35,7 @@ export default function ContactPage() {
             <p className="text-sm text-gray-500 mt-2">For general inquiries and support</p>
           </div>
 
-          {/* Phone Card */}
+
           <div className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
             <div className="flex items-center mb-4">
               <div className="bg-[#652293]/10 p-3 rounded-lg mr-4">
@@ -52,7 +52,7 @@ export default function ContactPage() {
             <p className="text-sm text-gray-500 mt-2">Get in Touch On Whatsapp</p>
           </div>
 
-          {/* LinkedIn Card */}
+
           <div className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
             <div className="flex items-center mb-4">
               <div className="bg-[#652293]/10 p-3 rounded-lg mr-4">
@@ -91,7 +91,7 @@ export default function ContactPage() {
           </div>
         </div>
 
-        {/* Additional Information */}
+
         <div className="mt-12 text-center">
           <div className="inline-flex items-center text-gray-600">
             <MapPin className="w-5 h-5 mr-2" />
